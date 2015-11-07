@@ -33,7 +33,6 @@
 
 @interface GlobalSetting : NSObject
 
-
 +(UIColor*)getBgColor;
 +(NSInteger)getBgColorIndex;
 +(UIColor*)getBgColorOfIndex:(NSInteger)index;

@@ -7,10 +7,11 @@
 //
 
 #import "RadioGroup.h"
+#import "CommData.h"
 
 
-#define  UNSELECT_COLOR  [UIColor clearColor]
-#define  SELECTED_COLOR [UIColor colorWithRed:164/255.0 green:61/255.0 blue:75/255.0 alpha:1]//[UIColor lightGrayColor]
+#define  UNSELECT_COLOR  [UIColor clearColor].CGColor
+#define  SELECTED_COLOR (COMMON_BG_COLOR.CGColor)   //[UIColor lightGrayColor]
 
 
 @interface RadioGroup()
@@ -36,20 +37,6 @@
     return _viewArray;
 }
 
-/*
-+(id)share
-{
-    static RadioGroup * group = nil;
-    static dispatch_once_t once;
-
-    dispatch_once(&once,^(void){
-        group = [RadioGroup new];
-    });
-    
-    return group;
-}
- */
-
 -(void)setGroup:(NSArray*)viewArray selectedIndex:(NSInteger)selectIndex block:(RadioBlock)b
 {
     self.viewArray = [viewArray mutableCopy];
@@ -60,7 +47,10 @@
         view.tag = index;
         view.userInteractionEnabled = YES;
         
-        view.backgroundColor = (index == selectIndex)? SELECTED_COLOR:UNSELECT_COLOR;
+        //view.backgroundColor = (index == selectIndex)? SELECTED_COLOR:UNSELECT_COLOR;
+        
+        view.layer.borderColor = (index == selectIndex)? SELECTED_COLOR:UNSELECT_COLOR;
+        view.layer.borderWidth = 3;
         
         
         UITapGestureRecognizer * g = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewClicked:)];
@@ -76,11 +66,11 @@
     for( NSInteger index = 0; index < self.viewArray.count; ++ index )
     {
         UIView * view = self.viewArray[index];
-        view.backgroundColor = UNSELECT_COLOR;
+        view.layer.borderColor = UNSELECT_COLOR;
         
         if( g.view.tag == index )
         {
-            view.backgroundColor = SELECTED_COLOR;
+            view.layer.borderColor = SELECTED_COLOR;
         }
     }
     

@@ -56,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4848DC761BED942700FDEB7C /* CommData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommData.h; sourceTree = "<group>"; };
 		48955C421BEC77000063C372 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48955C461BEC77000063C372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48955C471BEC77000063C372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		48955C441BEC77000063C372 /* eBook */ = {
 			isa = PBXGroup;
 			children = (
+				4848DC761BED942700FDEB7C /* CommData.h */,
 				48955C991BECBC8A0063C372 /* RadioGroup.m */,
 				48955C9A1BECBC8A0063C372 /* RadioGroup.h */,
 				48955C801BEC7C460063C372 /* BookView.m */,
@@ -574,6 +576,7 @@
 				48955C671BEC77000063C372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48955C681BEC77000063C372 /* Build configuration list for PBXNativeTarget "eBookTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +585,7 @@
 				48955C6A1BEC77000063C372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

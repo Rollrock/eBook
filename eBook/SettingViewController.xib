@@ -11,6 +11,8 @@
                 <outlet property="bgColorView2" destination="oQK-XW-1zz" id="wEy-eR-z4d"/>
                 <outlet property="bgColorView3" destination="iU8-LA-iPt" id="kmm-nf-8la"/>
                 <outlet property="daFontView" destination="5Cy-gD-d3P" id="2U8-r4-1Gf"/>
+                <outlet property="dayView" destination="LT7-Th-nxM" id="9dM-oE-56L"/>
+                <outlet property="nightView" destination="yk0-7Z-4GK" id="5bY-cu-Hf1"/>
                 <outlet property="styleLab" destination="WZi-J7-1CM" id="Xyp-aq-aOM"/>
                 <outlet property="textColorView0" destination="TpB-VI-6K9" id="E7F-en-bcc"/>
                 <outlet property="textColorView1" destination="eA1-xT-jin" id="Tb7-bX-YZf"/>
@@ -143,8 +145,8 @@
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="qf9-K3-15b"/>
                                     <exclude reference="OAT-P5-8VP"/>
+                                    <exclude reference="qf9-K3-15b"/>
                                 </mask>
                             </variation>
                         </imageView>
@@ -204,6 +206,20 @@
                                 <constraint firstAttribute="width" constant="51" id="g46-8N-gAD"/>
                             </constraints>
                         </imageView>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_color_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="LT7-Th-nxM">
+                            <rect key="frame" x="125" y="340" width="51" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="6Ku-71-Vth"/>
+                                <constraint firstAttribute="width" constant="51" id="RH7-jd-7eL"/>
+                            </constraints>
+                        </imageView>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_color_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="yk0-7Z-4GK">
+                            <rect key="frame" x="200" y="340" width="51" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Lak-Fe-p7t"/>
+                                <constraint firstAttribute="width" constant="51" id="h0L-Xz-XBh"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
@@ -215,14 +231,17 @@
                         <constraint firstItem="oQK-XW-1zz" firstAttribute="top" secondItem="G1u-2Y-rRt" secondAttribute="bottom" constant="20" id="B4U-tk-m9K"/>
                         <constraint firstItem="siO-OG-8ql" firstAttribute="leading" secondItem="QaQ-3N-fN2" secondAttribute="leading" id="BSd-Sh-Mx4"/>
                         <constraint firstItem="WZi-J7-1CM" firstAttribute="leading" secondItem="QaQ-3N-fN2" secondAttribute="leading" constant="10" id="BhH-n2-0nd"/>
+                        <constraint firstItem="LT7-Th-nxM" firstAttribute="leading" secondItem="nMg-hz-Zec" secondAttribute="trailing" constant="33" id="CI6-zI-IB4"/>
                         <constraint firstItem="iU8-LA-iPt" firstAttribute="top" secondItem="G1u-2Y-rRt" secondAttribute="bottom" constant="20" id="EEn-DQ-D5D"/>
                         <constraint firstAttribute="trailing" secondItem="vec-cW-xtc" secondAttribute="trailing" id="ELO-Pd-6pX"/>
                         <constraint firstItem="G1u-2Y-rRt" firstAttribute="leading" secondItem="QaQ-3N-fN2" secondAttribute="leading" id="EaH-BJ-Suu"/>
                         <constraint firstItem="vec-cW-xtc" firstAttribute="leading" secondItem="QaQ-3N-fN2" secondAttribute="leading" id="F37-XU-0lX"/>
                         <constraint firstItem="BhQ-hw-GuG" firstAttribute="leading" secondItem="QaQ-3N-fN2" secondAttribute="leading" constant="24" id="FFf-dv-aHX"/>
+                        <constraint firstItem="yk0-7Z-4GK" firstAttribute="leading" secondItem="LT7-Th-nxM" secondAttribute="trailing" constant="24" id="HIs-ev-2hi"/>
                         <constraint firstItem="dYd-8e-ott" firstAttribute="leading" secondItem="BhQ-hw-GuG" secondAttribute="trailing" constant="19" id="IXX-Sa-X1a"/>
                         <constraint firstAttribute="trailing" secondItem="4aV-Uz-hgf" secondAttribute="trailing" constant="10" id="KZ8-3u-yL7"/>
                         <constraint firstItem="G1u-2Y-rRt" firstAttribute="top" secondItem="4aV-Uz-hgf" secondAttribute="bottom" constant="10" id="L4b-1C-4xh"/>
+                        <constraint firstItem="yk0-7Z-4GK" firstAttribute="top" secondItem="vec-cW-xtc" secondAttribute="bottom" constant="28" id="MRi-9q-Kve"/>
                         <constraint firstItem="0t3-sG-ecT" firstAttribute="top" secondItem="G1u-2Y-rRt" secondAttribute="bottom" constant="20" id="Nha-UG-B5G"/>
                         <constraint firstItem="gUk-cv-2vS" firstAttribute="leading" secondItem="5Lz-TF-sgW" secondAttribute="trailing" constant="27" id="OwC-Ys-zBw"/>
                         <constraint firstItem="4aV-Uz-hgf" firstAttribute="leading" secondItem="QaQ-3N-fN2" secondAttribute="leading" constant="15" id="PPx-xq-wMe"/>
@@ -245,6 +264,7 @@
                         <constraint firstItem="oQK-XW-1zz" firstAttribute="leading" secondItem="ZUk-xV-wLv" secondAttribute="trailing" constant="14" id="f6y-eR-459"/>
                         <constraint firstItem="siO-OG-8ql" firstAttribute="top" secondItem="BhQ-hw-GuG" secondAttribute="bottom" constant="10" id="fAe-dp-bWP"/>
                         <constraint firstItem="gUk-cv-2vS" firstAttribute="top" secondItem="siO-OG-8ql" secondAttribute="bottom" constant="6" id="fKf-gs-qzA"/>
+                        <constraint firstItem="LT7-Th-nxM" firstAttribute="top" secondItem="vec-cW-xtc" secondAttribute="bottom" constant="28" id="h8z-G8-JeV"/>
                         <constraint firstItem="BhQ-hw-GuG" firstAttribute="top" secondItem="WZi-J7-1CM" secondAttribute="bottom" constant="61" id="jCf-e2-NV9"/>
                         <constraint firstItem="nMg-hz-Zec" firstAttribute="top" secondItem="vec-cW-xtc" secondAttribute="bottom" constant="42" id="qBe-vs-Y8E"/>
                         <constraint firstItem="kF7-rc-K4H" firstAttribute="top" secondItem="G1u-2Y-rRt" secondAttribute="bottom" constant="46" id="rAc-iR-cdq"/>

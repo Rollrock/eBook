@@ -31,12 +31,16 @@
 @property (weak, nonatomic) IBOutlet UIImageView *textColorView2;
 @property (weak, nonatomic) IBOutlet UIImageView *textColorView3;
 
+@property (weak, nonatomic) IBOutlet UIImageView *dayView;
+@property (weak, nonatomic) IBOutlet UIImageView *nightView;
+
 
 
 
 @property(strong,nonatomic) RadioGroup * fontGroup;
 @property(strong,nonatomic) RadioGroup * bgColorGroup;
 @property(strong,nonatomic) RadioGroup * textColorGroup;
+@property(strong,nonatomic) RadioGroup * dayNightGroup;
 
 
 @end
@@ -80,6 +84,16 @@
         [GlobalSetting setTextColorOfIndex:index];
         
     }];
+    
+    [self.dayNightGroup setGroup:@[_dayView,_nightView] selectedIndex:[GlobalSetting getTextColorIndex] block:^(NSInteger index){
+        
+        /*
+        __strong typeof (self) strongSelf = weakSelf;
+        strongSelf.styleLab.textColor = [GlobalSetting getTextColorOfIndex:index];
+        [GlobalSetting setTextColorOfIndex:index];
+         */
+        
+    }];
 }
 
 
@@ -112,6 +126,17 @@
     return _textColorGroup;
 }
 
+-(RadioGroup*)dayNightGroup
+{
+    if( !_dayNightGroup )
+    {
+        _dayNightGroup = [[RadioGroup alloc]init];
+    }
+    
+    return _dayNightGroup;
+}
+
+#pragma System
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
