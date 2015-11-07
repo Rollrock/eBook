@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4848DC8C1BED9F0400FDEB7C /* BookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DC8A1BED9F0400FDEB7C /* BookPageViewController.m */; };
+		4848DC8D1BED9F0400FDEB7C /* BookPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DC8B1BED9F0400FDEB7C /* BookPageViewController.xib */; };
+		4848DC911BED9FA900FDEB7C /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DC8F1BED9FA900FDEB7C /* BookDetailViewController.m */; };
+		4848DC921BED9FA900FDEB7C /* BookDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DC901BED9FA900FDEB7C /* BookDetailViewController.xib */; };
+		4848DC981BEDDDEB00FDEB7C /* SplitNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DC971BEDDDEB00FDEB7C /* SplitNSString.m */; };
+		4848DC9A1BEDF18200FDEB7C /* info.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4848DC991BEDF18200FDEB7C /* info.txt */; };
 		48955C481BEC77000063C372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C471BEC77000063C372 /* main.m */; };
 		48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4A1BEC77000063C372 /* AppDelegate.m */; };
 		48955C4E1BEC77000063C372 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4D1BEC77000063C372 /* ViewController.m */; };
@@ -57,6 +63,15 @@
 
 /* Begin PBXFileReference section */
 		4848DC761BED942700FDEB7C /* CommData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommData.h; sourceTree = "<group>"; };
+		4848DC891BED9F0400FDEB7C /* BookPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookPageViewController.h; sourceTree = "<group>"; };
+		4848DC8A1BED9F0400FDEB7C /* BookPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookPageViewController.m; sourceTree = "<group>"; };
+		4848DC8B1BED9F0400FDEB7C /* BookPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookPageViewController.xib; sourceTree = "<group>"; };
+		4848DC8E1BED9FA900FDEB7C /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
+		4848DC8F1BED9FA900FDEB7C /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
+		4848DC901BED9FA900FDEB7C /* BookDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailViewController.xib; sourceTree = "<group>"; };
+		4848DC961BEDDDEB00FDEB7C /* SplitNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitNSString.h; sourceTree = "<group>"; };
+		4848DC971BEDDDEB00FDEB7C /* SplitNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitNSString.m; sourceTree = "<group>"; };
+		4848DC991BEDF18200FDEB7C /* info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.txt; sourceTree = "<group>"; };
 		48955C421BEC77000063C372 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48955C461BEC77000063C372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48955C471BEC77000063C372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -179,6 +194,14 @@
 				48955C961BECBBDA0063C372 /* SettingViewController.xib */,
 				48955C9C1BECC3550063C372 /* GlobalSetting.h */,
 				48955C9D1BECC3550063C372 /* GlobalSetting.m */,
+				4848DC891BED9F0400FDEB7C /* BookPageViewController.h */,
+				4848DC8A1BED9F0400FDEB7C /* BookPageViewController.m */,
+				4848DC8B1BED9F0400FDEB7C /* BookPageViewController.xib */,
+				4848DC8E1BED9FA900FDEB7C /* BookDetailViewController.h */,
+				4848DC8F1BED9FA900FDEB7C /* BookDetailViewController.m */,
+				4848DC901BED9FA900FDEB7C /* BookDetailViewController.xib */,
+				4848DC961BEDDDEB00FDEB7C /* SplitNSString.h */,
+				4848DC971BEDDDEB00FDEB7C /* SplitNSString.m */,
 			);
 			path = eBook;
 			sourceTree = "<group>";
@@ -243,6 +266,7 @@
 		48955C7D1BEC7B5E0063C372 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				4848DC991BEDF18200FDEB7C /* info.txt */,
 				48955C7E1BEC7B5E0063C372 /* book.png */,
 			);
 			path = test;
@@ -338,6 +362,7 @@
 				48955C981BECBBDA0063C372 /* SettingViewController.xib in Resources */,
 				48955CB41BECD28D0063C372 /* bg_color_1.png in Resources */,
 				48955C7B1BEC792F0063C372 /* search.png in Resources */,
+				4848DC8D1BED9F0400FDEB7C /* BookPageViewController.xib in Resources */,
 				48955C561BEC77000063C372 /* LaunchScreen.xib in Resources */,
 				48955CA91BECD2740063C372 /* text_color_3.png in Resources */,
 				48955C841BEC843E0063C372 /* del.png in Resources */,
@@ -345,12 +370,14 @@
 				48955CAC1BECD2740063C372 /* text_color_1.png in Resources */,
 				48955C7A1BEC792F0063C372 /* hot.png in Resources */,
 				48955C531BEC77000063C372 /* Images.xcassets in Resources */,
+				4848DC921BED9FA900FDEB7C /* BookDetailViewController.xib in Resources */,
 				48955C7F1BEC7B5E0063C372 /* book.png in Resources */,
 				48955CA31BECCACF0063C372 /* xiao.png in Resources */,
 				48955CAA1BECD2740063C372 /* text_color_0.png in Resources */,
 				48955C891BEC87660063C372 /* BookBriefViewController.xib in Resources */,
 				48955CA21BECCACF0063C372 /* zhong.png in Resources */,
 				48955CA41BECCACF0063C372 /* da.png in Resources */,
+				4848DC9A1BEDF18200FDEB7C /* info.txt in Resources */,
 				48955C741BEC77400063C372 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,12 +398,15 @@
 			files = (
 				48955C9E1BECC3550063C372 /* GlobalSetting.m in Sources */,
 				48955C921BEC8FB20063C372 /* HotViewController.m in Sources */,
+				4848DC8C1BED9F0400FDEB7C /* BookPageViewController.m in Sources */,
 				48955C4E1BEC77000063C372 /* ViewController.m in Sources */,
+				4848DC911BED9FA900FDEB7C /* BookDetailViewController.m in Sources */,
 				48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */,
 				48955C481BEC77000063C372 /* main.m in Sources */,
 				48955C8D1BEC8C540063C372 /* HotTableViewCell.m in Sources */,
 				48955C971BECBBDA0063C372 /* SettingViewController.m in Sources */,
 				48955C821BEC7C460063C372 /* BookView.m in Sources */,
+				4848DC981BEDDDEB00FDEB7C /* SplitNSString.m in Sources */,
 				48955C881BEC87660063C372 /* BookBriefViewController.m in Sources */,
 				48955C731BEC77400063C372 /* MainViewController.m in Sources */,
 				48955C9B1BECBC8A0063C372 /* RadioGroup.m in Sources */,

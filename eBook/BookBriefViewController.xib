@@ -37,6 +37,9 @@
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="readClicked" destination="-1" eventType="touchUpInside" id="Iri-mV-xKy"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6fp-uB-RPg">
                     <rect key="frame" x="0.0" y="295" width="600" height="305"/>
@@ -71,7 +74,7 @@
                 <constraint firstItem="6fp-uB-RPg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uSk-FS-fAS"/>
                 <constraint firstItem="6fp-uB-RPg" firstAttribute="top" secondItem="66o-HQ-qB6" secondAttribute="bottom" constant="20" id="wSX-a8-W9t"/>
             </constraints>
-            <point key="canvasLocation" x="409" y="214"/>
+            <point key="canvasLocation" x="-65" y="127"/>
         </view>
     </objects>
     <resources>

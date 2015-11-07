@@ -7,8 +7,13 @@
 //
 
 #import "BookBriefViewController.h"
+#import "BookPageViewController.h"
+#import "BookDetailViewController.h"
 
 @interface BookBriefViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+- (IBAction)readClicked;
+
 
 @end
 
@@ -38,4 +43,19 @@
     return nil;
 }
 
+
+- (IBAction)readClicked
+{
+#if 0
+    BookDetailViewController * vc = [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+
+#else
+    
+    BookPageViewController * vc = [[BookPageViewController alloc]initWithNibName:@"BookPageViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+#endif
+    
+}
 @end
