@@ -17,6 +17,7 @@
 }
 @property(strong,nonatomic) BookDetailViewController * curBookVC;
 @property(strong,nonatomic) UIPageViewController * pageViewController;
+@property(strong,nonatomic) UIView * buttomView;
 
 @property(strong,nonatomic) NSMutableArray * dataArray;
 @end
@@ -29,10 +30,13 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    //[self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
     
     [self addGesture];
+    
+    [self customView];
+    
+    [self.view addSubview:self.buttomView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,12 +48,16 @@
 #pragma UIPageViewController
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
+    [self hideCustomView];
+    
     return  [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];;
     
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
+    [self hideCustomView];
+    
     BookDetailViewController * vc = [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];
     vc.textStr = self.dataArray[++curIndex];
     
@@ -119,7 +127,7 @@
     NSLog(@"tapClick");
     
     [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
-    
+    [self buttomViewShow];
     
 }
 
@@ -128,8 +136,86 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self buttomViewShow];
     
     [super viewWillAppear:animated];
+}
+
+
+#pragma Other
+
+-(void)dayNightClicked
+{
+    NSLog(@"dayNightClicked");
+}
+
+-(UIView*)buttomView
+{
+    if(!_buttomView)
+    {
+        _buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-60, [UIScreen mainScreen].bounds.size.width,60)];
+        _buttomView.backgroundColor = [UIColor orangeColor];
+        
+        //
+        UIButton * dayBtn = [[UIButton alloc]initWithFrame:CGRectMake(_buttomView.frame.size.width - 50, 10, 30, 30)];
+        [dayBtn setBackgroundImage:[UIImage imageNamed:@"dayNight"] forState:UIControlStateNormal];
+        [dayBtn addTarget:self action:@selector(dayNightClicked) forControlEvents:UIControlEventTouchUpInside];
+        [_buttomView addSubview:dayBtn];
+        
+    }
+    
+    return _buttomView;
+}
+
+-(void)buttomViewShow
+{
+    [UIView animateWithDuration:0.3 animations:^(void){
+        
+        if( _buttomView.center.y > [UIScreen mainScreen].bounds.size.height )
+        {
+            _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height-30);
+        }
+        else
+        {
+            _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height+30);
+        }
+        
+    }completion:^(BOOL finished) {
+        
+    }];
+    
+}
+
+-(void)hideCustomView
+{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    [UIView animateWithDuration:0.3 animations:^(void){
+        
+    if( _buttomView.center.y < [UIScreen mainScreen].bounds.size.height )
+    {
+        _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height+30);
+    }
+        
+    }completion:^(BOOL finished) {
+        
+    }];
+
+}
+
+-(void)customView
+{
+    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
+    [self.navigationItem setLeftBarButtonItem:leftBtn];
+    
+    self.title = @"金瓶梅";
+    
+
+}
+
+-(void)leftClicked
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -41,7 +41,7 @@
 {
     if( !_textLab )
     {
-        _textLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 65, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 65 - 10)];
+        _textLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 65 - 20)];
         _textLab.textAlignment = NSTextAlignmentLeft;
         _textLab.numberOfLines = 0;
         _textLab.font = [GlobalSetting getFont];

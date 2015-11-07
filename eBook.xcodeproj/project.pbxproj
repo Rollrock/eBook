@@ -13,6 +13,8 @@
 		4848DC921BED9FA900FDEB7C /* BookDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DC901BED9FA900FDEB7C /* BookDetailViewController.xib */; };
 		4848DC981BEDDDEB00FDEB7C /* SplitNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DC971BEDDDEB00FDEB7C /* SplitNSString.m */; };
 		4848DC9A1BEDF18200FDEB7C /* info.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4848DC991BEDF18200FDEB7C /* info.txt */; };
+		4848DC9C1BEE0EF400FDEB7C /* NavBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DC9B1BEE0EF400FDEB7C /* NavBack@2x.png */; };
+		4848DC9E1BEE23B500FDEB7C /* dayNight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DC9D1BEE23B500FDEB7C /* dayNight.png */; };
 		48955C481BEC77000063C372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C471BEC77000063C372 /* main.m */; };
 		48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4A1BEC77000063C372 /* AppDelegate.m */; };
 		48955C4E1BEC77000063C372 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4D1BEC77000063C372 /* ViewController.m */; };
@@ -72,6 +74,8 @@
 		4848DC961BEDDDEB00FDEB7C /* SplitNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitNSString.h; sourceTree = "<group>"; };
 		4848DC971BEDDDEB00FDEB7C /* SplitNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitNSString.m; sourceTree = "<group>"; };
 		4848DC991BEDF18200FDEB7C /* info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.txt; sourceTree = "<group>"; };
+		4848DC9B1BEE0EF400FDEB7C /* NavBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBack@2x.png"; sourceTree = "<group>"; };
+		4848DC9D1BEE23B500FDEB7C /* dayNight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dayNight.png; sourceTree = "<group>"; };
 		48955C421BEC77000063C372 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48955C461BEC77000063C372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48955C471BEC77000063C372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -244,9 +248,11 @@
 		48955C761BEC792F0063C372 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4848DC9B1BEE0EF400FDEB7C /* NavBack@2x.png */,
 				48955C9F1BECCACF0063C372 /* zhong.png */,
 				48955CA01BECCACF0063C372 /* xiao.png */,
 				48955CA11BECCACF0063C372 /* da.png */,
+				4848DC9D1BEE23B500FDEB7C /* dayNight.png */,
 				48955CA51BECD2740063C372 /* text_color_3.png */,
 				48955CA61BECD2740063C372 /* text_color_0.png */,
 				48955CAD1BECD28D0063C372 /* bg_color_0.png */,
@@ -373,6 +379,8 @@
 				4848DC921BED9FA900FDEB7C /* BookDetailViewController.xib in Resources */,
 				48955C7F1BEC7B5E0063C372 /* book.png in Resources */,
 				48955CA31BECCACF0063C372 /* xiao.png in Resources */,
+				4848DC9C1BEE0EF400FDEB7C /* NavBack@2x.png in Resources */,
+				4848DC9E1BEE23B500FDEB7C /* dayNight.png in Resources */,
 				48955CAA1BECD2740063C372 /* text_color_0.png in Resources */,
 				48955C891BEC87660063C372 /* BookBriefViewController.xib in Resources */,
 				48955CA21BECCACF0063C372 /* zhong.png in Resources */,
