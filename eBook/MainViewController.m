@@ -11,6 +11,7 @@
 #import "BookBriefViewController.h"
 #import "HotViewController.h"
 #import "SettingViewController.h"
+#import "BookCategoryViewController.h"
 
 
 #define SHELF_BOOK_WIDTH 100 //书架一本书宽度
@@ -19,6 +20,7 @@
 
 
 #define HOT_VIEW_TAG  1001
+#define SEARCH_VIEW_TAG 1002
 #define SETTING_VIEW_TAG  1003
 
 
@@ -91,6 +93,16 @@
     if( CGRectContainsPoint([self.view viewWithTag:HOT_VIEW_TAG].bounds,pt))
     {
         HotViewController * vc = [[HotViewController alloc]initWithNibName:@"HotViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        return;
+    }
+    
+    //搜索
+    pt = [t locationInView:[self.view viewWithTag:SEARCH_VIEW_TAG]];
+    if( CGRectContainsPoint([self.view viewWithTag:SEARCH_VIEW_TAG].bounds,pt))
+    {
+        BookCategoryViewController * vc = [[BookCategoryViewController alloc]initWithNibName:@"BookCategoryViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
         
         return;

@@ -59,17 +59,39 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enj-sT-s7P">
+                    <rect key="frame" x="122" y="235" width="80" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="EXe-zd-rMO"/>
+                        <constraint firstAttribute="width" constant="80" id="Mmn-Or-7Dh"/>
+                    </constraints>
+                    <state key="normal" title="加入书架">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addToShelf" destination="-1" eventType="touchUpInside" id="3zk-dO-hVB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="2PN-ha-EVM" firstAttribute="leading" secondItem="dm9-qK-KeN" secondAttribute="trailing" constant="10" id="1cH-nw-SKx"/>
                 <constraint firstItem="2PN-ha-EVM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="362-9u-7ZB"/>
                 <constraint firstAttribute="trailing" secondItem="2PN-ha-EVM" secondAttribute="trailing" constant="10" id="Dlf-E7-LHZ"/>
+                <constraint firstItem="Enj-sT-s7P" firstAttribute="leading" secondItem="66o-HQ-qB6" secondAttribute="trailing" constant="22" id="IgD-Vw-Nic"/>
                 <constraint firstItem="66o-HQ-qB6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="SiI-XL-u8l"/>
                 <constraint firstItem="dm9-qK-KeN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="VE1-sT-FHN"/>
                 <constraint firstAttribute="bottom" secondItem="6fp-uB-RPg" secondAttribute="bottom" id="dKN-UX-D3j"/>
                 <constraint firstItem="66o-HQ-qB6" firstAttribute="top" secondItem="2PN-ha-EVM" secondAttribute="bottom" constant="20" id="lzS-Ah-5Ad"/>
                 <constraint firstItem="dm9-qK-KeN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="pvo-bl-OuA"/>
+                <constraint firstItem="Enj-sT-s7P" firstAttribute="top" secondItem="2PN-ha-EVM" secondAttribute="bottom" constant="20" id="rXT-Qb-27v"/>
                 <constraint firstAttribute="trailing" secondItem="6fp-uB-RPg" secondAttribute="trailing" id="tih-WY-XB3"/>
                 <constraint firstItem="6fp-uB-RPg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uSk-FS-fAS"/>
                 <constraint firstItem="6fp-uB-RPg" firstAttribute="top" secondItem="66o-HQ-qB6" secondAttribute="bottom" constant="20" id="wSX-a8-W9t"/>

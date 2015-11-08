@@ -21,6 +21,18 @@
 		4848DCC01BEE2DC100FDEB7C /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCB91BEE2DC100FDEB7C /* zip.c */; };
 		4848DCC11BEE2DC100FDEB7C /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCBC1BEE2DC100FDEB7C /* SSZipArchive.m */; };
 		4848DCC31BEE2E6600FDEB7C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4848DCC21BEE2E6600FDEB7C /* libz.dylib */; };
+		4848DCC61BEEE7E300FDEB7C /* DownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCC51BEEE7E300FDEB7C /* DownManager.m */; };
+		4848DCC91BEEEC5400FDEB7C /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCC81BEEEC5400FDEB7C /* FileManager.m */; };
+		4848DCCD1BEF3BEC00FDEB7C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCCC1BEF3BEC00FDEB7C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4848DCD01BEF3CB000FDEB7C /* StructInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCCF1BEF3CB000FDEB7C /* StructInfo.m */; };
+		4848DCD41BEF4D6700FDEB7C /* BookCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCD21BEF4D6700FDEB7C /* BookCategoryViewController.m */; };
+		4848DCD51BEF4D6700FDEB7C /* BookCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DCD31BEF4D6700FDEB7C /* BookCategoryViewController.xib */; };
+		4848DCD91BEF516E00FDEB7C /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCD71BEF516E00FDEB7C /* BookListViewController.m */; };
+		4848DCDA1BEF516E00FDEB7C /* BookListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DCD81BEF516E00FDEB7C /* BookListViewController.xib */; };
+		4848DCDE1BEF57B000FDEB7C /* BookListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCDC1BEF57B000FDEB7C /* BookListTableViewCell.m */; };
+		4848DCDF1BEF57B000FDEB7C /* BookListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DCDD1BEF57B000FDEB7C /* BookListTableViewCell.xib */; };
+		4848DCE21BEF59FE00FDEB7C /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DCE01BEF59FE00FDEB7C /* UIScrollView+UITouch.m */; };
+		4848DCE51BEF5C4000FDEB7C /* hot.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4848DCE41BEF5C4000FDEB7C /* hot.txt */; };
 		48955C481BEC77000063C372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C471BEC77000063C372 /* main.m */; };
 		48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4A1BEC77000063C372 /* AppDelegate.m */; };
 		48955C4E1BEC77000063C372 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4D1BEC77000063C372 /* ViewController.m */; };
@@ -95,6 +107,26 @@
 		4848DCBB1BEE2DC100FDEB7C /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		4848DCBC1BEE2DC100FDEB7C /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		4848DCC21BEE2E6600FDEB7C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4848DCC41BEEE7E300FDEB7C /* DownManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownManager.h; sourceTree = "<group>"; };
+		4848DCC51BEEE7E300FDEB7C /* DownManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownManager.m; sourceTree = "<group>"; };
+		4848DCC71BEEEC5400FDEB7C /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		4848DCC81BEEEC5400FDEB7C /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		4848DCCB1BEF3BEC00FDEB7C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		4848DCCC1BEF3BEC00FDEB7C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		4848DCCE1BEF3CB000FDEB7C /* StructInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructInfo.h; sourceTree = "<group>"; };
+		4848DCCF1BEF3CB000FDEB7C /* StructInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StructInfo.m; sourceTree = "<group>"; };
+		4848DCD11BEF4D6700FDEB7C /* BookCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCategoryViewController.h; sourceTree = "<group>"; };
+		4848DCD21BEF4D6700FDEB7C /* BookCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCategoryViewController.m; sourceTree = "<group>"; };
+		4848DCD31BEF4D6700FDEB7C /* BookCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCategoryViewController.xib; sourceTree = "<group>"; };
+		4848DCD61BEF516E00FDEB7C /* BookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListViewController.h; sourceTree = "<group>"; };
+		4848DCD71BEF516E00FDEB7C /* BookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListViewController.m; sourceTree = "<group>"; };
+		4848DCD81BEF516E00FDEB7C /* BookListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookListViewController.xib; sourceTree = "<group>"; };
+		4848DCDB1BEF57B000FDEB7C /* BookListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListTableViewCell.h; sourceTree = "<group>"; };
+		4848DCDC1BEF57B000FDEB7C /* BookListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListTableViewCell.m; sourceTree = "<group>"; };
+		4848DCDD1BEF57B000FDEB7C /* BookListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookListTableViewCell.xib; sourceTree = "<group>"; };
+		4848DCE01BEF59FE00FDEB7C /* UIScrollView+UITouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UITouch.m"; sourceTree = "<group>"; };
+		4848DCE11BEF59FE00FDEB7C /* UIScrollView+UITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UITouch.h"; sourceTree = "<group>"; };
+		4848DCE41BEF5C4000FDEB7C /* hot.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hot.txt; sourceTree = "<group>"; };
 		48955C421BEC77000063C372 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48955C461BEC77000063C372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48955C471BEC77000063C372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +201,7 @@
 		4848DCAE1BEE2DC100FDEB7C /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				4848DCCA1BEF3BEC00FDEB7C /* JSONKit */,
 				4848DCAF1BEE2DC100FDEB7C /* SSZipArchive */,
 			);
 			path = 3rd;
@@ -201,6 +234,23 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		4848DCCA1BEF3BEC00FDEB7C /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				4848DCCB1BEF3BEC00FDEB7C /* JSONKit.h */,
+				4848DCCC1BEF3BEC00FDEB7C /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		4848DCE31BEF5C4000FDEB7C /* hot */ = {
+			isa = PBXGroup;
+			children = (
+				4848DCE41BEF5C4000FDEB7C /* hot.txt */,
+			);
+			path = hot;
+			sourceTree = "<group>";
+		};
 		48955C391BEC77000063C372 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +273,8 @@
 		48955C441BEC77000063C372 /* eBook */ = {
 			isa = PBXGroup;
 			children = (
+				4848DCE01BEF59FE00FDEB7C /* UIScrollView+UITouch.m */,
+				4848DCE11BEF59FE00FDEB7C /* UIScrollView+UITouch.h */,
 				4848DCAE1BEE2DC100FDEB7C /* 3rd */,
 				4848DC761BED942700FDEB7C /* CommData.h */,
 				48955C991BECBC8A0063C372 /* RadioGroup.m */,
@@ -263,6 +315,21 @@
 				4848DC901BED9FA900FDEB7C /* BookDetailViewController.xib */,
 				4848DC961BEDDDEB00FDEB7C /* SplitNSString.h */,
 				4848DC971BEDDDEB00FDEB7C /* SplitNSString.m */,
+				4848DCC41BEEE7E300FDEB7C /* DownManager.h */,
+				4848DCC51BEEE7E300FDEB7C /* DownManager.m */,
+				4848DCC71BEEEC5400FDEB7C /* FileManager.h */,
+				4848DCC81BEEEC5400FDEB7C /* FileManager.m */,
+				4848DCCE1BEF3CB000FDEB7C /* StructInfo.h */,
+				4848DCCF1BEF3CB000FDEB7C /* StructInfo.m */,
+				4848DCD11BEF4D6700FDEB7C /* BookCategoryViewController.h */,
+				4848DCD21BEF4D6700FDEB7C /* BookCategoryViewController.m */,
+				4848DCD31BEF4D6700FDEB7C /* BookCategoryViewController.xib */,
+				4848DCD61BEF516E00FDEB7C /* BookListViewController.h */,
+				4848DCD71BEF516E00FDEB7C /* BookListViewController.m */,
+				4848DCD81BEF516E00FDEB7C /* BookListViewController.xib */,
+				4848DCDB1BEF57B000FDEB7C /* BookListTableViewCell.h */,
+				4848DCDC1BEF57B000FDEB7C /* BookListTableViewCell.m */,
+				4848DCDD1BEF57B000FDEB7C /* BookListTableViewCell.xib */,
 			);
 			path = eBook;
 			sourceTree = "<group>";
@@ -296,6 +363,7 @@
 		48955C751BEC792F0063C372 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				4848DCE31BEF5C4000FDEB7C /* hot */,
 				48955C7D1BEC7B5E0063C372 /* test */,
 				48955C761BEC792F0063C372 /* image */,
 			);
@@ -416,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48955C931BEC8FB20063C372 /* HotViewController.xib in Resources */,
+				4848DCD51BEF4D6700FDEB7C /* BookCategoryViewController.xib in Resources */,
 				48955CB21BECD28D0063C372 /* bg_color_2.png in Resources */,
 				48955C8E1BEC8C540063C372 /* HotTableViewCell.xib in Resources */,
 				48955C511BEC77000063C372 /* Main.storyboard in Resources */,
@@ -434,6 +503,8 @@
 				48955C7A1BEC792F0063C372 /* hot.png in Resources */,
 				48955C531BEC77000063C372 /* Images.xcassets in Resources */,
 				4848DC921BED9FA900FDEB7C /* BookDetailViewController.xib in Resources */,
+				4848DCDF1BEF57B000FDEB7C /* BookListTableViewCell.xib in Resources */,
+				4848DCE51BEF5C4000FDEB7C /* hot.txt in Resources */,
 				48955C7F1BEC7B5E0063C372 /* book.png in Resources */,
 				48955CA31BECCACF0063C372 /* xiao.png in Resources */,
 				4848DC9C1BEE0EF400FDEB7C /* NavBack@2x.png in Resources */,
@@ -441,6 +512,7 @@
 				48955CAA1BECD2740063C372 /* text_color_0.png in Resources */,
 				48955C891BEC87660063C372 /* BookBriefViewController.xib in Resources */,
 				48955CA21BECCACF0063C372 /* zhong.png in Resources */,
+				4848DCDA1BEF516E00FDEB7C /* BookListViewController.xib in Resources */,
 				48955CA41BECCACF0063C372 /* da.png in Resources */,
 				4848DC9A1BEDF18200FDEB7C /* info.txt in Resources */,
 				48955C741BEC77400063C372 /* MainViewController.xib in Resources */,
@@ -466,16 +538,24 @@
 				4848DCBE1BEE2DC100FDEB7C /* mztools.c in Sources */,
 				4848DCC01BEE2DC100FDEB7C /* zip.c in Sources */,
 				4848DCC11BEE2DC100FDEB7C /* SSZipArchive.m in Sources */,
+				4848DCC91BEEEC5400FDEB7C /* FileManager.m in Sources */,
 				4848DC8C1BED9F0400FDEB7C /* BookPageViewController.m in Sources */,
+				4848DCD41BEF4D6700FDEB7C /* BookCategoryViewController.m in Sources */,
 				48955C4E1BEC77000063C372 /* ViewController.m in Sources */,
+				4848DCD01BEF3CB000FDEB7C /* StructInfo.m in Sources */,
 				4848DC911BED9FA900FDEB7C /* BookDetailViewController.m in Sources */,
 				48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */,
+				4848DCCD1BEF3BEC00FDEB7C /* JSONKit.m in Sources */,
 				48955C481BEC77000063C372 /* main.m in Sources */,
 				48955C8D1BEC8C540063C372 /* HotTableViewCell.m in Sources */,
 				48955C971BECBBDA0063C372 /* SettingViewController.m in Sources */,
 				4848DCBD1BEE2DC100FDEB7C /* ioapi.c in Sources */,
+				4848DCE21BEF59FE00FDEB7C /* UIScrollView+UITouch.m in Sources */,
 				4848DCBF1BEE2DC100FDEB7C /* unzip.c in Sources */,
+				4848DCD91BEF516E00FDEB7C /* BookListViewController.m in Sources */,
 				48955C821BEC7C460063C372 /* BookView.m in Sources */,
+				4848DCDE1BEF57B000FDEB7C /* BookListTableViewCell.m in Sources */,
+				4848DCC61BEEE7E300FDEB7C /* DownManager.m in Sources */,
 				4848DC981BEDDDEB00FDEB7C /* SplitNSString.m in Sources */,
 				48955C881BEC87660063C372 /* BookBriefViewController.m in Sources */,
 				48955C731BEC77400063C372 /* MainViewController.m in Sources */,

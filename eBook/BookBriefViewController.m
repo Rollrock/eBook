@@ -13,6 +13,7 @@
 @interface BookBriefViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 - (IBAction)readClicked;
+- (IBAction)addToShelf;
 
 
 @end
@@ -57,5 +58,8 @@
     
 #endif
     
+}
+
+- (IBAction)addToShelf {
 }
 @end

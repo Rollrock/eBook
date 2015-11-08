@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StructInfo.h"
+
+@protocol HotCellDelegate <NSObject>
+
+-(void)hotCellClicked:(int)index;
+
+@end
+
 
 @interface HotTableViewCell : UITableViewCell
+
+@property(weak,nonatomic) id<HotCellDelegate> cellDelegate;
+
+-(void)refreshCell:(HotInfo*)hotInfo;
 
 @end

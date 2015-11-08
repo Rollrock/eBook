@@ -27,7 +27,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LG1-ef-ank">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LG1-ef-ank">
                                 <rect key="frame" x="1" y="41" width="442" height="1"/>
                                 <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -45,14 +45,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="6az-S7-ojk">
-                                <rect key="frame" x="10" y="58" width="139" height="91"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="91" id="4HH-Py-KTf"/>
-                                    <constraint firstAttribute="width" constant="139" id="Tim-qx-MvA"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJz-ea-OAd">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJz-ea-OAd">
                                 <rect key="frame" x="0.0" y="154" width="444" height="1"/>
                                 <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -65,8 +58,8 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="zV6-rr-aGN"/>
                                         <exclude reference="1Xr-Tn-y90"/>
+                                        <exclude reference="zV6-rr-aGN"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -130,7 +123,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pR9-e8-KBU">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pR9-e8-KBU">
                                 <rect key="frame" x="0.0" y="211" width="444" height="1"/>
                                 <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -143,8 +136,8 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="Uik-FR-wrS"/>
                                         <exclude reference="I6t-3O-vhx"/>
+                                        <exclude reference="Uik-FR-wrS"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -157,7 +150,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc6-X9-yvZ">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc6-X9-yvZ">
                                 <rect key="frame" x="0.0" y="269" width="444" height="1"/>
                                 <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -170,8 +163,8 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="ZdQ-fz-CzW"/>
                                         <exclude reference="0dw-mv-AdN"/>
+                                        <exclude reference="ZdQ-fz-CzW"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -184,6 +177,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="6az-S7-ojk">
+                                <rect key="frame" x="10" y="55" width="139" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="4HH-Py-KTf"/>
+                                    <constraint firstAttribute="width" constant="139" id="Tim-qx-MvA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -241,7 +241,13 @@
                     <constraint firstItem="arZ-3I-v0y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="XMt-nS-2N0"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="353" y="204.5"/>
+            <connections>
+                <outlet property="book2Lab" destination="M9Y-oc-cme" id="3tI-ar-M2X"/>
+                <outlet property="book3Lab" destination="v2Z-Eo-crb" id="dkT-C3-wSE"/>
+                <outlet property="book4Lab" destination="xQ6-hU-6W6" id="WmH-az-DX5"/>
+                <outlet property="faceImgView" destination="6az-S7-ojk" id="DgD-o9-caX"/>
+            </connections>
+            <point key="canvasLocation" x="246" y="112.5"/>
         </tableViewCell>
     </objects>
     <resources>

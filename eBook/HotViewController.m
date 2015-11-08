@@ -8,10 +8,15 @@
 
 #import "HotViewController.h"
 #import "HotTableViewCell.h"
+#import "DownManager.h"
+#import "FileManager.h"
+#import "JSONKit.h"
+#import "StructInfo.h"
+#import "BookBriefViewController.h"
 
-@interface HotViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HotViewController ()<UITableViewDelegate,UITableViewDataSource , HotCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property(strong,nonatomic) NSMutableArray * hotArray;
 @end
 
 @implementation HotViewController
@@ -23,6 +28,22 @@
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = 200;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //
+    //NSDictionary * dict = [[FileManager getFileData:@"hot" name:@"hot.txt"] objectFromJSONData];
+    
+    NSString * filePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/hot.txt"];
+    NSData * data = [NSData dataWithContentsOfFile:filePath];
+    
+    NSDictionary * dict = [data objectFromJSONData];
+    
+    NSArray * arr = dict[@"info"];
+    for( NSDictionary*d in arr)
+    {
+        HotInfo * info = [HotInfo new];
+        [info fromDict:d];
+        [self.hotArray addObject:info];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,8 +68,30 @@
     {
         cell = [[[NSBundle mainBundle]loadNibNamed:cellId owner:self options:nil]lastObject];
     }
+    cell.cellDelegate = self;
+    
+    [cell refreshCell:self.hotArray[indexPath.row]];
     
     return cell;
 }
 
+#pragma HotCellDelegate
+-(void)hotCellClicked:(int)index
+{
+    NSLog(@"hotCellClicked:%d",index);
+    
+    BookBriefViewController * vc = [[BookBriefViewController alloc]initWithNibName:@"BookBriefViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma InitData
+-(NSMutableArray*)hotArray
+{
+    if( !_hotArray )
+    {
+        _hotArray = [NSMutableArray new];
+    }
+    
+    return _hotArray;
+}
 @end
