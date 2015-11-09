@@ -13,6 +13,10 @@
 #import "JSONKit.h"
 #import "StructInfo.h"
 #import "BookBriefViewController.h"
+#import "SVProgressHUD.h"
+
+
+#define HOT_URL @"http://www.hushup.com.cn/eBook/hot/hot.txt"
 
 @interface HotViewController ()<UITableViewDelegate,UITableViewDataSource , HotCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,21 +33,48 @@
     _tableView.estimatedRowHeight = 200;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    
     //
-    //NSDictionary * dict = [[FileManager getFileData:@"hot" name:@"hot.txt"] objectFromJSONData];
-    
-    NSString * filePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingString:@"/hot.txt"];
-    NSData * data = [NSData dataWithContentsOfFile:filePath];
-    
-    NSDictionary * dict = [data objectFromJSONData];
-    
-    NSArray * arr = dict[@"info"];
-    for( NSDictionary*d in arr)
+    if( ![self getDataFromFile] )
+        //下载
     {
-        HotInfo * info = [HotInfo new];
-        [info fromDict:d];
-        [self.hotArray addObject:info];
+        [SVProgressHUD showWithStatus:@"下载中..."];
+        
+        __weak typeof(self) weakSelf = self;
+        
+        [[DownManager share]startDownLoad:HOT_URL succ:^(NSData *data) {
+            
+            [FileManager writeDataToFile:data dir:@"hot" name:@"hot.txt"];
+            
+            __strong typeof(self) strongSelf = weakSelf;
+            
+            [strongSelf getDataFromFile];
+            [strongSelf.tableView reloadData];
+            
+        }];
+        
+        [SVProgressHUD showSuccessWithStatus:@"下载完成"];
     }
+}
+
+-(BOOL)getDataFromFile
+{
+    NSDictionary * dict = [[FileManager getFileData:@"hot" name:@"hot.txt"] objectFromJSONData];
+    
+    if( dict )
+    {
+        NSArray * arr = dict[@"info"];
+        for( NSDictionary*d in arr)
+        {
+            HotInfo * info = [HotInfo new];
+            [info fromDict:d];
+            [self.hotArray addObject:info];
+        }
+        
+        return YES;
+    }
+    
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +86,7 @@
 #pragma UITableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  2;
+    return  self.hotArray.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

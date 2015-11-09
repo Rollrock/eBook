@@ -19,6 +19,7 @@
 //
 @interface HotInfo : NSObject
 @property(strong,nonatomic) NSString * type;
+@property(strong,nonatomic) NSString * face;
 @property(strong,nonatomic) NSMutableArray * bookArray;//BookInfo Array
 -(void)fromDict:(NSDictionary*)dict;
 @end

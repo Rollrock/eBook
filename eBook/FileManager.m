@@ -24,17 +24,22 @@
 
 +(void)writeDataToFile:(NSData*)data dir:(NSString*)dir name:(NSString*)name
 {
-    // 获取程序Documents目录路径
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSMutableString * path = [[NSMutableString alloc]initWithString:documentsDirectory];
-    [path appendString:[NSString stringWithFormat:@"/%@/%@",dir,name]];
-    
-    [self createDir:dir];
-    
-    BOOL ret = [data writeToFile:path atomically:YES];
-    NSLog(@"ret:%d",ret);
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^(void){
+        
+        // 获取程序Documents目录路径
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        
+        NSMutableString * path = [[NSMutableString alloc]initWithString:documentsDirectory];
+        [path appendString:[NSString stringWithFormat:@"/%@/%@",dir,name]];
+        
+        [self createDir:dir];
+        
+        BOOL ret = [data writeToFile:path atomically:YES];
+        NSLog(@"ret:%d",ret);
+        
+    });
+
 }
 
 +(NSData*)getFileData:(NSString*)dir name:(NSString*)name
@@ -44,6 +49,8 @@
     
     NSMutableString * path = [[NSMutableString alloc]initWithString:documentsDirectory];
     [path appendString:[NSString stringWithFormat:@"/%@/%@",dir,name]];
+    
+    NSLog(@"path:%@",path);
     
     NSData* fileData = [NSData dataWithContentsOfFile:path];
     

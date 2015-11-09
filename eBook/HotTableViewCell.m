@@ -7,6 +7,9 @@
 //
 
 #import "HotTableViewCell.h"
+#import "UIImageView+WebCache.h"
+#import "CommData.h"
+
 
 @interface HotTableViewCell()
 
@@ -36,6 +39,11 @@
     _book2Lab.text = ((BookInfo*)(hotInfo.bookArray[1])).name;
     _book3Lab.text = ((BookInfo*)(hotInfo.bookArray[2])).name;
     _book4Lab.text = ((BookInfo*)(hotInfo.bookArray[3])).name;
+    
+    NSString * url = [NSString stringWithFormat:@"%@hot/%@",BASE_URL,hotInfo.face];
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [_faceImgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"book"]];
+    
 }
 
 

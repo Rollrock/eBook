@@ -27,9 +27,10 @@
 
 -(void)fromDict:(NSDictionary*)dict
 {
-    
     self.type = dict[@"type"];
+    self.face = dict[@"face"];
     
+    //
     NSArray * array = dict[@"book"];
     for( NSDictionary * sd in array )
     {

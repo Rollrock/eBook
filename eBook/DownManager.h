@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef void(^DownLoadComplete) (NSData*data);
+
 @interface DownManager : NSObject
 
 +(DownManager*)share;
--(void)startDownLoad:(NSString*)strUrl;
+-(void)startDownLoad:(NSString*)strUrl succ:(DownLoadComplete)succ;
+
+@property(copy,nonatomic) DownLoadComplete downComplete;
 
 @end

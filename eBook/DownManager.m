@@ -9,6 +9,8 @@
 #import "DownManager.h"
 #import "FileManager.h"
 
+
+
 @interface DownManager()<NSURLConnectionDelegate>
 {
     NSURLRequest * request;
@@ -32,7 +34,7 @@
     return manager;
 }
 
--(void)startDownLoad:(NSString*)strUrl
+-(void)startDownLoad:(NSString*)strUrl succ:(DownLoadComplete)succ
 {
     bookData = nil;
     bookData = [NSMutableData new];
@@ -40,6 +42,9 @@
     //
     request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:strUrl]];
     conn = [[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
+    
+    //
+    self.downComplete = succ;
     
 }
 
@@ -62,7 +67,10 @@
 {
     NSLog(@"connectionDidFinishLoading");
     
-    [FileManager writeDataToFile:bookData dir:@"hot" name:@"hot.txt"];
+    if( self.downComplete )
+    {
+        self.downComplete(bookData);
+    }
 }
 
 
