@@ -13,5 +13,6 @@
 +(void)writeDataToFile:(NSData*)data dir:(NSString*)dir name:(NSString*)name;
 +(NSData*)getFileData:(NSString*)dir name:(NSString*)name;
 +(NSString*)getFileString:(NSString*)dir name:(NSString*)name;
++(void)unZipFile:(NSString*)dir name:(NSString*)name;
 
 @end

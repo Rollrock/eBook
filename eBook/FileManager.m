@@ -7,6 +7,7 @@
 //
 
 #import "FileManager.h"
+#import "SSZipArchive.h"
 
 @implementation FileManager
 
@@ -65,9 +66,36 @@
     NSMutableString * path = [[NSMutableString alloc]initWithString:documentsDirectory];
     [path appendString:[NSString stringWithFormat:@"/%@/%@",dir,name]];
     
-    NSString* str = [NSString stringWithContentsOfFile:path usedEncoding:NSUTF8StringEncoding error:NULL];
+    NSString* str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
     return str;
 }
 
+
++(void)unZipFile:(NSString*)dir name:(NSString*)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSMutableString * path = [[NSMutableString alloc]initWithString:documentsDirectory];
+    NSString * zipPath = [NSString stringWithFormat:@"%@/%@/%@.zip",path,dir,name];
+    NSString * destPath = [NSString stringWithFormat:@"%@/%@",path,dir];
+    
+    BOOL bRet = [SSZipArchive unzipFileAtPath:zipPath toDestination:destPath];
+    
+    NSLog(@"unzip:%d",bRet);
+    if( bRet )
+    {
+        [self removeZipFile:zipPath];
+    }
+    
+}
+
++(void)removeZipFile:(NSString*)path
+{
+    NSFileManager *defaultManager;
+    defaultManager = [NSFileManager defaultManager];
+    
+    [defaultManager removeItemAtPath:path error:nil];
+}
 @end

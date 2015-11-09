@@ -8,10 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BookInfo : NSObject
+@interface BookSimpleInfo : NSObject
 @property(strong,nonatomic) NSString * name;//名字
 @property(strong,nonatomic) NSString * face;//封面
 @property(strong,nonatomic) NSString * desc;//简介
+-(void)fromDict:(NSDictionary*)dict;
+@end
+
+//////////////////////////////////////////////////////////////////
+@interface UnitInfo : NSObject
+@property(strong,nonatomic) NSString * uintKey;
+@property(strong,nonatomic) NSString * uintName;
+@end
+
+@interface BookDetailInfo : NSObject
+@property(strong,nonatomic) BookSimpleInfo * simpleInfo;
+@property(strong,nonatomic) NSMutableArray * uintArray;
 -(void)fromDict:(NSDictionary*)dict;
 @end
 
@@ -19,8 +31,7 @@
 //
 @interface HotInfo : NSObject
 @property(strong,nonatomic) NSString * type;
-@property(strong,nonatomic) NSString * face;
-@property(strong,nonatomic) NSMutableArray * bookArray;//BookInfo Array
+@property(strong,nonatomic) NSMutableArray * bookArray;//BookSimpleInfo Array
 -(void)fromDict:(NSDictionary*)dict;
 @end
 

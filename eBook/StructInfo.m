@@ -9,7 +9,7 @@
 #import "StructInfo.h"
 
 
-@implementation BookInfo
+@implementation BookSimpleInfo
 
 -(void)fromDict:(NSDictionary*)dict
 {
@@ -22,19 +22,66 @@
 @end
 
 
+////////
+@implementation UnitInfo
+-(void)fromDict:(NSDictionary*)dict
+{
+    self.uintKey = dict[@"key"];
+    self.uintName = dict[@"name"];
+}
+@end
+
+@implementation BookDetailInfo
+
+-(void)fromDict:(NSDictionary*)dict
+{
+    [self.simpleInfo fromDict:dict];
+    NSArray * arr = dict[@"zhang"];
+    
+    for( NSDictionary* d in arr )
+    {
+        UnitInfo * info = [UnitInfo new];
+        [info fromDict:d];
+        
+        [self.uintArray addObject:info];
+    }
+}
+
+-(NSMutableArray*)uintArray
+{
+    if(!_uintArray)
+    {
+        _uintArray = [NSMutableArray new];
+    }
+    
+    return _uintArray;
+}
+
+-(BookSimpleInfo*)simpleInfo
+{
+    if( !_simpleInfo )
+    {
+        _simpleInfo = [BookSimpleInfo new];
+    }
+    
+    return _simpleInfo;
+}
+
+@end
+
+
 //
 @implementation HotInfo
 
 -(void)fromDict:(NSDictionary*)dict
 {
     self.type = dict[@"type"];
-    self.face = dict[@"face"];
     
     //
     NSArray * array = dict[@"book"];
     for( NSDictionary * sd in array )
     {
-        BookInfo * info = [BookInfo new];
+        BookSimpleInfo * info = [BookSimpleInfo new];
         [info fromDict:sd];
         
         [self.bookArray addObject:info];

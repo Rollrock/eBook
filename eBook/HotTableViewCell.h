@@ -11,7 +11,7 @@
 
 @protocol HotCellDelegate <NSObject>
 
--(void)hotCellClicked:(int)index;
+-(void)hotCellClicked:(int)index tag:(int)tag;
 
 @end
 

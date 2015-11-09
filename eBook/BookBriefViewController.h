@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BookBriefViewController : UIViewController
-
+@property(copy,nonatomic) NSString * bookName;
+@property(copy,nonatomic) NSString * bookDesc;
 @end

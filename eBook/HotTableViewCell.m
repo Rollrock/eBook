@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *book3Lab;
 @property (weak, nonatomic) IBOutlet UILabel *book4Lab;
+@property (weak, nonatomic) IBOutlet UILabel *descLab;
 
 @end
 
@@ -36,13 +37,17 @@
 
 -(void)refreshCell:(HotInfo*)hotInfo
 {
-    _book2Lab.text = ((BookInfo*)(hotInfo.bookArray[1])).name;
-    _book3Lab.text = ((BookInfo*)(hotInfo.bookArray[2])).name;
-    _book4Lab.text = ((BookInfo*)(hotInfo.bookArray[3])).name;
+    _book2Lab.text = ((BookSimpleInfo*)(hotInfo.bookArray[1])).name;
+    _book3Lab.text = ((BookSimpleInfo*)(hotInfo.bookArray[2])).name;
+    _book4Lab.text = ((BookSimpleInfo*)(hotInfo.bookArray[3])).name;
     
-    NSString * url = [NSString stringWithFormat:@"%@hot/%@",BASE_URL,hotInfo.face];
+    
+    _descLab.text = ((BookSimpleInfo*)(hotInfo.bookArray[0])).desc;
+    
+    NSString * url = [NSString stringWithFormat:@"%@hot/封面/%@.png",BASE_URL,((BookSimpleInfo*)(hotInfo.bookArray[0])).name];
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [_faceImgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"book"]];
+    
     
 }
 
@@ -84,9 +89,9 @@
     }
     
     //
-    if( [_cellDelegate respondsToSelector:@selector(hotCellClicked:)] )
+    if( [_cellDelegate respondsToSelector:@selector(hotCellClicked:tag:)] )
     {
-        [_cellDelegate hotCellClicked:index];
+        [_cellDelegate hotCellClicked:index tag:self.tag];
     }
     
 }

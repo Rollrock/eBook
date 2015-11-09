@@ -51,6 +51,8 @@
 		4848DD1F1BF048CC00FDEB7C /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD0D1BF048CC00FDEB7C /* UIImageView+HighlightedWebCache.m */; };
 		4848DD201BF048CC00FDEB7C /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD0F1BF048CC00FDEB7C /* UIImageView+WebCache.m */; };
 		4848DD211BF048CC00FDEB7C /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD111BF048CC00FDEB7C /* UIView+WebCacheOperation.m */; };
+		4848DD251BF07D8700FDEB7C /* BookBriefTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD231BF07D8700FDEB7C /* BookBriefTableCell.m */; };
+		4848DD261BF07D8700FDEB7C /* BookBriefTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD241BF07D8700FDEB7C /* BookBriefTableCell.xib */; };
 		48955C481BEC77000063C372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C471BEC77000063C372 /* main.m */; };
 		48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4A1BEC77000063C372 /* AppDelegate.m */; };
 		48955C4E1BEC77000063C372 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4D1BEC77000063C372 /* ViewController.m */; };
@@ -183,6 +185,9 @@
 		4848DD0F1BF048CC00FDEB7C /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		4848DD101BF048CC00FDEB7C /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		4848DD111BF048CC00FDEB7C /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		4848DD221BF07D8700FDEB7C /* BookBriefTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookBriefTableCell.h; sourceTree = "<group>"; };
+		4848DD231BF07D8700FDEB7C /* BookBriefTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookBriefTableCell.m; sourceTree = "<group>"; };
+		4848DD241BF07D8700FDEB7C /* BookBriefTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookBriefTableCell.xib; sourceTree = "<group>"; };
 		48955C421BEC77000063C372 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48955C461BEC77000063C372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48955C471BEC77000063C372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -433,6 +438,9 @@
 				4848DCDB1BEF57B000FDEB7C /* BookListTableViewCell.h */,
 				4848DCDC1BEF57B000FDEB7C /* BookListTableViewCell.m */,
 				4848DCDD1BEF57B000FDEB7C /* BookListTableViewCell.xib */,
+				4848DD221BF07D8700FDEB7C /* BookBriefTableCell.h */,
+				4848DD231BF07D8700FDEB7C /* BookBriefTableCell.m */,
+				4848DD241BF07D8700FDEB7C /* BookBriefTableCell.xib */,
 			);
 			path = eBook;
 			sourceTree = "<group>";
@@ -589,6 +597,7 @@
 				4848DCD51BEF4D6700FDEB7C /* BookCategoryViewController.xib in Resources */,
 				48955CB21BECD28D0063C372 /* bg_color_2.png in Resources */,
 				48955C8E1BEC8C540063C372 /* HotTableViewCell.xib in Resources */,
+				4848DD261BF07D8700FDEB7C /* BookBriefTableCell.xib in Resources */,
 				48955C511BEC77000063C372 /* Main.storyboard in Resources */,
 				48955CB31BECD28D0063C372 /* bg_color_3.png in Resources */,
 				48955CB11BECD28D0063C372 /* bg_color_0.png in Resources */,
@@ -679,6 +688,7 @@
 				4848DD131BF048CC00FDEB7C /* NSData+ImageContentType.m in Sources */,
 				4848DD1F1BF048CC00FDEB7C /* UIImageView+HighlightedWebCache.m in Sources */,
 				48955C731BEC77400063C372 /* MainViewController.m in Sources */,
+				4848DD251BF07D8700FDEB7C /* BookBriefTableCell.m in Sources */,
 				48955C9B1BECBC8A0063C372 /* RadioGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

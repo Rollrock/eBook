@@ -10,10 +10,13 @@
 #import "BookDetailViewController.h"
 #import "SplitNSString.h"
 #import "GlobalSetting.h"
+#import "FileManager.h"
+#import "CommData.h"
+#import "StructInfo.h"
 
 @interface BookPageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 {
-    int curIndex;
+    int curPageIndex;//当前页数
 }
 @property(strong,nonatomic) BookDetailViewController * curBookVC;
 @property(strong,nonatomic) UIPageViewController * pageViewController;
@@ -50,8 +53,10 @@
 {
     [self hideCustomView];
     
-    return  [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];;
+    BookDetailViewController * vc = [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];
+    vc.textStr = [self getPrePageData];
     
+    return vc.textStr? vc:nil;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
@@ -59,7 +64,7 @@
     [self hideCustomView];
     
     BookDetailViewController * vc = [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];
-    vc.textStr = self.dataArray[++curIndex];
+    vc.textStr = [self getNextPageData];//self.dataArray[++curIndex];
     
     return vc;
 }
@@ -90,8 +95,8 @@
     if( !_curBookVC)
     {
         _curBookVC = [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];
-        _curBookVC.textStr = self.dataArray[0];
-        curIndex = 0;
+        _curBookVC.textStr = [self getCurPageData];
+        curPageIndex = 0;
     }
     
     return _curBookVC;
@@ -102,18 +107,81 @@
 {
     if(!_dataArray)
     {
-        NSLog(@"%f",[[NSDate date] timeIntervalSince1970]);
         
-        NSString * txtPath = [[NSBundle mainBundle] pathForResource:@"info" ofType:@"txt"];
-        NSString * strBody = [NSString stringWithContentsOfFile:txtPath encoding:NSUTF8StringEncoding error:nil];
+        NSString * origStr = [FileManager getFileString:[NSString stringWithFormat:@"%@/%@",self.bookDir,self.bookName] name:[NSString stringWithFormat:@"%@.txt",((UnitInfo*)(self.listArray[self.curUint])).uintKey]];
         
-        _dataArray = [[SplitNSString getStringArray:strBody w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];
         
-        NSLog(@"%f",[[NSDate date] timeIntervalSince1970]);
+        
+        self.dataArray = [[SplitNSString getStringArray:origStr w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];
+        
+        curPageIndex = 0;
     }
     
     return _dataArray;
 }
+
+//得到下一页的数据
+-(NSString*)getNextPageData
+{
+    ++curPageIndex;
+    
+    //这一章完了
+    if( curPageIndex >= self.dataArray.count )
+    {
+        [self.dataArray removeAllObjects];
+        self.dataArray = nil;
+        
+        self.curUint ++;
+        
+        //
+        NSString * origStr = [FileManager getFileString:[NSString stringWithFormat:@"%@/%@",self.bookDir,self.bookName] name:[NSString stringWithFormat:@"%@.txt",((UnitInfo*)(self.listArray[self.curUint])).uintKey]];
+
+        
+        self.dataArray = [[SplitNSString getStringArray:origStr w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];
+        
+        curPageIndex = 0;
+    }
+    
+    return self.dataArray[curPageIndex];
+}
+
+
+//得到上一页的数据
+-(NSString*)getPrePageData
+{
+    --curPageIndex;
+    
+    //这一章完了
+    if( curPageIndex < 0 )
+    {
+        [self.dataArray removeAllObjects];
+        self.dataArray = nil;
+        
+        self.curUint --;
+        
+        if( self.curUint < 0 )
+        {
+            
+            return nil;
+        }
+        
+        //
+        NSString * origStr = [FileManager getFileString:[NSString stringWithFormat:@"%@/%@",self.bookDir,self.bookName] name:[NSString stringWithFormat:@"%@.txt",((UnitInfo*)(self.listArray[self.curUint])).uintKey]];
+        
+        
+        self.dataArray = [[SplitNSString getStringArray:origStr w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];
+        
+        curPageIndex = _dataArray.count-1;
+    }
+    
+    return self.dataArray[curPageIndex];
+}
+
+-(NSString*)getCurPageData
+{
+     return self.dataArray[curPageIndex];
+}
+
 
 #pragma Gesture
 -(void)addGesture
@@ -209,8 +277,6 @@
     [self.navigationItem setLeftBarButtonItem:leftBtn];
     
     self.title = @"金瓶梅";
-    
-
 }
 
 -(void)leftClicked

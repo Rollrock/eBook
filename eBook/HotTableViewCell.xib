@@ -177,6 +177,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9On-Gg-xFG">
+                                <rect key="frame" x="154" y="52" width="290" height="97"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="6az-S7-ojk">
                                 <rect key="frame" x="10" y="55" width="139" height="91"/>
                                 <constraints>
@@ -212,10 +218,14 @@
                             <constraint firstItem="v2Z-Eo-crb" firstAttribute="leading" secondItem="e12-Z4-5KW" secondAttribute="trailing" constant="20" id="Zf8-qt-rbv"/>
                             <constraint firstItem="e12-Z4-5KW" firstAttribute="leading" secondItem="arZ-3I-v0y" secondAttribute="leading" constant="10" id="dH6-Nq-Yq0"/>
                             <constraint firstItem="gc6-X9-yvZ" firstAttribute="leading" secondItem="arZ-3I-v0y" secondAttribute="leading" id="emD-jS-jvk"/>
+                            <constraint firstItem="9On-Gg-xFG" firstAttribute="top" secondItem="LG1-ef-ank" secondAttribute="bottom" constant="10" id="fAC-0o-BNk"/>
+                            <constraint firstItem="9On-Gg-xFG" firstAttribute="leading" secondItem="6az-S7-ojk" secondAttribute="trailing" constant="5" id="gHo-i0-l4X"/>
                             <constraint firstItem="KAO-0K-Hgm" firstAttribute="leading" secondItem="arZ-3I-v0y" secondAttribute="leading" constant="10" id="hk2-Ln-tgT"/>
                             <constraint firstAttribute="trailing" secondItem="M9Y-oc-cme" secondAttribute="trailing" constant="10" id="ihI-3t-qlj"/>
                             <constraint firstAttribute="trailing" secondItem="xQ6-hU-6W6" secondAttribute="trailing" id="n99-OB-u91"/>
                             <constraint firstItem="M9Y-oc-cme" firstAttribute="top" secondItem="KJz-ea-OAd" secondAttribute="bottom" constant="19" id="pol-qy-5u9"/>
+                            <constraint firstItem="KJz-ea-OAd" firstAttribute="top" secondItem="9On-Gg-xFG" secondAttribute="bottom" constant="5" id="s9X-Os-ghE"/>
+                            <constraint firstAttribute="trailing" secondItem="9On-Gg-xFG" secondAttribute="trailing" id="tUo-WT-DJf"/>
                             <constraint firstItem="6az-S7-ojk" firstAttribute="leading" secondItem="arZ-3I-v0y" secondAttribute="leading" constant="10" id="uGd-7i-JRP"/>
                             <constraint firstItem="v2Z-Eo-crb" firstAttribute="top" secondItem="pR9-e8-KBU" secondAttribute="bottom" constant="16" id="vzL-7o-GoH"/>
                             <constraint firstAttribute="trailing" secondItem="gc6-X9-yvZ" secondAttribute="trailing" id="whz-7w-tjj"/>
@@ -245,6 +255,7 @@
                 <outlet property="book2Lab" destination="M9Y-oc-cme" id="3tI-ar-M2X"/>
                 <outlet property="book3Lab" destination="v2Z-Eo-crb" id="dkT-C3-wSE"/>
                 <outlet property="book4Lab" destination="xQ6-hU-6W6" id="WmH-az-DX5"/>
+                <outlet property="descLab" destination="9On-Gg-xFG" id="ldn-UN-jKi"/>
                 <outlet property="faceImgView" destination="6az-S7-ojk" id="DgD-o9-caX"/>
             </connections>
             <point key="canvasLocation" x="246" y="112.5"/>

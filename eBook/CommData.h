@@ -9,6 +9,8 @@
 #ifndef alarm_CommData_h
 #define alarm_CommData_h
 
+#import "JSONKit.h"
+#import "StructInfo.h"
 
 #define BASE_URL  @"http://www.hushup.com.cn/eBook/"
 

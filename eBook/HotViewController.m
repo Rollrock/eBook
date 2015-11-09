@@ -99,6 +99,8 @@
     {
         cell = [[[NSBundle mainBundle]loadNibNamed:cellId owner:self options:nil]lastObject];
     }
+    
+    cell.tag = indexPath.row;
     cell.cellDelegate = self;
     
     [cell refreshCell:self.hotArray[indexPath.row]];
@@ -107,11 +109,14 @@
 }
 
 #pragma HotCellDelegate
--(void)hotCellClicked:(int)index
+-(void)hotCellClicked:(int)index tag:(int)tag
 {
     NSLog(@"hotCellClicked:%d",index);
     
     BookBriefViewController * vc = [[BookBriefViewController alloc]initWithNibName:@"BookBriefViewController" bundle:nil];
+    vc.bookName = (((BookSimpleInfo*)((HotInfo*)self.hotArray[tag]).bookArray[index])).name;
+    vc.bookDesc = (((BookSimpleInfo*)((HotInfo*)self.hotArray[tag]).bookArray[index])).desc;
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 
