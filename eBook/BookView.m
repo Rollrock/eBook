@@ -10,7 +10,7 @@
 
 @interface BookView()
 {
-    NSString * imgName;
+    UIImage * image;
 }
 
 @property(strong,nonatomic) UIImageView * imgView;
@@ -21,13 +21,13 @@
 @implementation BookView
 
 
--(id)initWithFrame:(CGRect)frame imgName:(NSString*)name
+-(id)initWithFrame:(CGRect)frame img:(UIImage*)img
 {
     self = [super initWithFrame:frame];
     
     if( self )
     {
-        imgName = name;
+        image = img;
         
         self.layer.shadowColor = [UIColor colorWithRed:1 green:255/255 blue:255/255 alpha:1].CGColor; //[UIColor blackColor].CGColor;
         self.layer.shadowOffset = CGSizeMake(5, 5);
@@ -64,9 +64,7 @@
     if( !_imgView )
     {
         _imgView = [[UIImageView alloc]initWithFrame:self.bounds];
-        
-        NSString * path = [[NSBundle mainBundle] pathForResource:imgName ofType:@"png"];
-        _imgView.image = [UIImage imageWithContentsOfFile:path];
+        _imgView.image = image;
     }
     
     return  _imgView;
@@ -88,9 +86,9 @@
     self.delBtn.hidden = YES;
     
     //
-    if( [_clickDelegate respondsToSelector:@selector(tapClicked)] )
+    if( [_clickDelegate respondsToSelector:@selector(tapClicked:)] )
     {
-        [_clickDelegate tapClicked];
+        [_clickDelegate tapClicked:self.tag];
     }
 }
 

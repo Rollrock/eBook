@@ -9,6 +9,7 @@
                 <outlet property="addToShelfBtn" destination="Enj-sT-s7P" id="vcg-Z7-Woa"/>
                 <outlet property="descTextView" destination="2PN-ha-EVM" id="V6S-ZA-SnB"/>
                 <outlet property="faceImgView" destination="dm9-qK-KeN" id="udf-yF-BdE"/>
+                <outlet property="readBtn" destination="66o-HQ-qB6" id="PZb-JG-Q0y"/>
                 <outlet property="tableView" destination="6fp-uB-RPg" id="HMx-GG-p57"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,26 +26,6 @@
                         <constraint firstAttribute="width" constant="105" id="YNi-5S-IIo"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66o-HQ-qB6">
-                    <rect key="frame" x="20" y="235" width="80" height="40"/>
-                    <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="BzY-cM-XDa"/>
-                        <constraint firstAttribute="width" constant="80" id="JTx-ST-GVR"/>
-                    </constraints>
-                    <state key="normal" title="继续阅读">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="readClicked" destination="-1" eventType="touchUpInside" id="Iri-mV-xKy"/>
-                    </connections>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6fp-uB-RPg">
                     <rect key="frame" x="0.0" y="295" width="600" height="305"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,6 +64,26 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66o-HQ-qB6">
+                    <rect key="frame" x="20" y="235" width="80" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BzY-cM-XDa"/>
+                        <constraint firstAttribute="width" constant="80" id="JTx-ST-GVR"/>
+                    </constraints>
+                    <state key="normal" title="阅读">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="readClicked" destination="-1" eventType="touchUpInside" id="Iri-mV-xKy"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

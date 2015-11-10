@@ -12,6 +12,7 @@
 @interface BookShelfInfo : NSObject<NSCoding>
 @property(strong,nonatomic) NSString * bookName;
 @property(strong,nonatomic) NSString * bookDir;
+@property(strong,nonatomic) NSString * bookDesc;
 @end
 
 //每本书的阅读信息保存

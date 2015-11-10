@@ -12,7 +12,8 @@
 #import "HotViewController.h"
 #import "SettingViewController.h"
 #import "BookCategoryViewController.h"
-
+#import "GlobalSetting.h"
+#import "BookCategoryViewController.h"
 
 #define SHELF_BOOK_WIDTH 100 //书架一本书宽度
 #define SHELF_BOOK_HEIGHT 160 //书架一本书宽度
@@ -29,6 +30,7 @@
 @property(strong,nonatomic) UIScrollView * bookScroll;
 
 //
+@property (strong,nonatomic) NSArray * bookShelfArray;
 @property (weak, nonatomic) IBOutlet UIView *bookScrollBgView;
 
 @end
@@ -41,9 +43,12 @@
     
     //
     
+    
     [_bookScrollBgView addSubview:self.bookScroll];
     
     [self refreshBookView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshBookView) name:NOTI_REFRESH_BOOK_SHELF object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +57,18 @@
 }
 
 
-#pragma InitView
+#pragma Init
+
+-(NSArray*)bookShelfArray
+{
+    if( !_bookShelfArray )
+    {
+        _bookShelfArray = [[GlobalSetting getBookShelfInfo] copy];
+    }
+    
+    return _bookShelfArray;
+}
+
 -(UIScrollView*)bookScroll
 {
     if( !_bookScroll )
@@ -64,6 +80,19 @@
     return _bookScroll;
 }
 
+-(UIImage*)getBookImg:(NSString*)dir name:(NSString*)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSMutableString * path = [[NSMutableString alloc]initWithString:documentsDirectory];
+    [path appendString:[NSString stringWithFormat:@"/%@/%@/%@.png",dir,name,name]];
+    
+    UIImage * img = [UIImage imageWithContentsOfFile:path];
+    
+    return img;
+}
+
 -(void)refreshBookView
 {
     for( UIView * view in _bookScroll.subviews)
@@ -72,14 +101,25 @@
     }
     
     //
-    for( int i = 0; i < 10; ++ i )
+    self.bookShelfArray = nil;
+    
+    for( int i = 0; i < self.bookShelfArray.count; ++ i )
     {
+        BookShelfInfo * info = self.bookShelfArray[i];
+        
         CGRect frame = CGRectMake(SHELF_BOOK_DIS+i*(SHELF_BOOK_WIDTH+SHELF_BOOK_DIS), SHELF_BOOK_DIS, SHELF_BOOK_WIDTH, SHELF_BOOK_HEIGHT);
-        BookView * view = [[BookView alloc]initWithFrame:frame imgName:@"book"];
+        BookView * view = [[BookView alloc]initWithFrame:frame  img:[self getBookImg:info.bookDir name:info.bookName]];
+        view.tag = i;
         view.clickDelegate = self;
         [_bookScroll addSubview:view];
         
         _bookScroll.contentSize = CGSizeMake(frame.size.width + frame.origin.x + SHELF_BOOK_DIS , _bookScroll.frame.size.height);
+    }
+    
+    if( self.bookShelfArray.count == 0 )
+    {
+        //
+        
     }
 }
 
@@ -122,11 +162,16 @@
 }
 
 #pragma BookViewDelegate
--(void)tapClicked
+-(void)tapClicked:(NSInteger)tag
 {
     NSLog(@"tapClicked");
     
+    BookShelfInfo * info = self.bookShelfArray[tag];
+    
     BookBriefViewController * vc = [[BookBriefViewController alloc]initWithNibName:@"BookBriefViewController" bundle:nil];
+    vc.bookName = info.bookName;
+    vc.dir = info.bookDir;
+    vc.bookDesc = info.bookDesc;
     
     [self.navigationController pushViewController:vc animated:YES];
 }

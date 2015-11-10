@@ -25,4 +25,9 @@
 
 #define UM_SHARE_KEY  @"55b06037e0f55a4422004da7"
 
+
+
+//刷新主页书架用
+#define NOTI_REFRESH_BOOK_SHELF  @"NOTI_REFRESH_BOOK_SHELF"
+
 #endif

@@ -17,6 +17,7 @@
     {
         self.bookName = [aDecoder decodeObjectForKey:@"bookName"];
         self.bookDir = [aDecoder decodeObjectForKey:@"bookDir"];
+        self.bookDesc = [aDecoder decodeObjectForKey:@"bookDesc"];
     }
     
     return self;
@@ -26,6 +27,7 @@
 {
     [aCoder encodeObject:self.bookName forKey:@"bookName"];
     [aCoder encodeObject:self.bookDir forKey:@"bookDir"];
+    [aCoder encodeObject:self.bookDesc forKey:@"bookDesc"];
 }
 
 @end

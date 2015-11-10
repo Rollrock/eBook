@@ -45,7 +45,6 @@
     
     //
     self.downComplete = succ;
-    
 }
 
 #pragma 

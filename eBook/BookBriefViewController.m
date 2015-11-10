@@ -15,6 +15,7 @@
 #import "CommData.h"
 #import "SSZipArchive.h"
 #import "UIImageView+WebCache.h"
+#import "GlobalSetting.h"
 
 @interface BookBriefViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *faceImgView;
 @property (weak, nonatomic) IBOutlet UITextView *descTextView;
 @property (weak, nonatomic) IBOutlet UIButton *addToShelfBtn;
+@property (weak, nonatomic) IBOutlet UIButton *readBtn;
 
 - (IBAction)readClicked;
 - (IBAction)addToShelf;
@@ -52,7 +54,7 @@
 -(void)customView
 {
     UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
-    leftBtn.tintColor = COMMON_BG_COLOR;
+    leftBtn.tintColor = [UIColor whiteColor];
     [self.navigationItem setLeftBarButtonItem:leftBtn];
     
     //self.title = @"金瓶梅";
@@ -90,9 +92,12 @@
 {
     NSData * data = [FileManager getFileData:[NSString stringWithFormat:@"%@/%@",self.dir, self.bookName] name:@"介绍.txt"];
     NSDictionary * dict = [data objectFromJSONData];
+    
     if( dict )
     {
         _addToShelfBtn.enabled = NO;
+        _readBtn.enabled = YES;
+        
         [_addToShelfBtn setTitle:@"已在书架" forState:UIControlStateNormal];
         
         //
@@ -100,6 +105,10 @@
         
         [self.bookInfo fromDict:dict];
         [self.tableView reloadData];
+    }
+    else
+    {
+        NSLog(@"getBookList is nil");
     }
 }
 
@@ -138,11 +147,9 @@
     vc.curPage = 0;
     
     [self.navigationController pushViewController:vc animated:YES];
-
 }
 
 #pragma Custom Event
-
 - (IBAction)readClicked
 {
     ReadInfo * info = [ReadInfo new];
@@ -156,7 +163,6 @@
     vc.curPage = [info.lastPage integerValue];
     vc.bookName = self.bookName;
     vc.bookDir = self.dir;
-    
     
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -180,6 +186,15 @@
         
         [strongSelf getBookList];
         
+        //
+        BookShelfInfo * info = [BookShelfInfo new];
+        info.bookName = self.bookName;
+        info.bookDir = self.dir;
+        info.bookDesc = self.bookDesc;
+        
+        [GlobalSetting setBookShelfInfo:info];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_REFRESH_BOOK_SHELF object:nil];
         
     }];
     

@@ -107,7 +107,6 @@
 {
     if(!_dataArray)
     {
-        
         NSString * origStr = [FileManager getFileString:[NSString stringWithFormat:@"%@/%@",self.bookDir,self.bookName] name:[NSString stringWithFormat:@"%@.txt",((UnitInfo*)(self.listArray[self.curUint])).uintKey]];
         
         self.dataArray = [[SplitNSString getStringArray:origStr w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];

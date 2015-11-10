@@ -14,7 +14,7 @@
 
 @protocol ClickDelegate <NSObject>
 
--(void)tapClicked;
+-(void)tapClicked:(NSInteger)tag;
 -(void)longPress;
 -(void)delClicked:(NSInteger)tag;
 
@@ -23,7 +23,7 @@
 
 @interface BookView : UIView
 
--(id)initWithFrame:(CGRect)frame imgName:(NSString*)name;
+-(id)initWithFrame:(CGRect)frame img:(UIImage*)img;
 
 @property( weak,nonatomic) id<ClickDelegate> clickDelegate;
 
