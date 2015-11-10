@@ -9,7 +9,7 @@
 #import "SplitNSString.h"
 
 
-#define ONE_LOAD_LEN   50 //一次加载长度
+#define ONE_LOAD_LEN   10 //一次加载长度
 #define MIN(a,b) (a>b?b:a)
 
 UIFont * FONT;
@@ -35,7 +35,7 @@ CGFloat MAX_LAB_WIDTH;
         NSString * subStr = [origStr substringToIndex:MIN(origStr.length,(i*ONE_LOAD_LEN))];
         CGFloat h = [self findHeightForText:subStr];
         
-        NSLog(@"h:%f",h);
+        //NSLog(@"h:%f",h);
         
         if( h > MAX_LAB_HEIGHT )
         {

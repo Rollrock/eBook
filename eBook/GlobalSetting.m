@@ -7,14 +7,126 @@
 //
 
 #import "GlobalSetting.h"
+#import "StructInfo.h"
 
 #define STORE_FONT          @"STORE_FONT"
 #define STORE_TEXT_COLOR    @"STORE_TEXT_COLOR"
 #define STORE_BG_COLOR      @"STORE_BG_COLOR"
 #define STORE_NIGHT_STYLE   @"STORE_NIGHT_STYLE"
 
+#define STORE_READ_INFO  @"STORE_READ_INFO"
+#define STORE_BOOKSHELF_INFO @"STORE_BOOKSHELF_INFo"
+
+//
 @implementation GlobalSetting
 
++(void)setBookShelfInfo:(BookShelfInfo*)info
+{
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    NSData * data = [def objectForKey:STORE_BOOKSHELF_INFO];
+    NSMutableArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    if( !array )
+    {
+        array = [NSMutableArray array];
+    }
+    
+    //
+    int i =0;
+    for( i = 0; i < array.count; ++ i )
+    {
+        BookShelfInfo * f = array[i];
+        
+        if( [f.bookName isEqualToString:info.bookName] && [f.bookDir isEqualToString:info.bookDir] )
+        {
+            return;
+        }
+    }
+    
+    if( i == array.count )
+    {
+        [array addObject:info];
+    }
+    
+    
+    data = [NSKeyedArchiver archivedDataWithRootObject:array];
+    [def setObject:data forKey:STORE_BOOKSHELF_INFO];
+    
+    [def synchronize];
+}
+
++(NSArray*)getBookShelfInfo
+{
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    NSData * data = [def objectForKey:STORE_BOOKSHELF_INFO];
+    NSArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    return array;
+}
+
+
+//
++(void)setReadInfo:(ReadInfo*)info
+{
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    NSData * data = [def objectForKey:STORE_READ_INFO];
+    NSMutableArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    if( !array )
+    {
+        array = [NSMutableArray array];
+    }
+    
+    //
+    int i =0;
+    for( i = 0; i < array.count; ++ i )
+    {
+        ReadInfo * f = array[i];
+        
+        if( [f.bookName isEqualToString:info.bookName] && [f.dirName isEqualToString:info.dirName] )
+        {
+            [array replaceObjectAtIndex:i withObject:info];
+            break;
+        }
+    }
+    
+    if( i == array.count )
+    {
+        [array addObject:info];
+    }
+    
+    
+    data = [NSKeyedArchiver archivedDataWithRootObject:array];
+    [def setObject:data forKey:STORE_READ_INFO];
+    
+    [def synchronize];
+}
+
++(ReadInfo*)getReadInfo:(ReadInfo*)info
+{
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    NSData * data = [def objectForKey:STORE_READ_INFO];
+    NSMutableArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    
+    ReadInfo * retInfo = [ReadInfo new];
+    
+    int i =0;
+    for( i = 0; i < array.count; ++ i )
+    {
+        ReadInfo * f = array[i];
+        
+        if( [f.bookName isEqualToString:info.bookName] && [f.dirName isEqualToString:info.dirName] )
+        {
+            return f;
+        }
+    }
+
+    return retInfo;
+}
+
+
+////////////////////////////////////////////////////////////////////////////
 
 +(UIColor*)getBgColor
 {

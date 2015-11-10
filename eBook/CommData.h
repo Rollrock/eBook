@@ -11,9 +11,11 @@
 
 #import "JSONKit.h"
 #import "StructInfo.h"
+#import "GlobalSetting.h"
 
 #define BASE_URL  @"http://www.hushup.com.cn/eBook/"
 
+#define NAV_BAR_HIEGHT   30.0f
 
 #define COMMON_BG_COLOR  [UIColor colorWithRed:34/255.0 green:168/255.0 blue:109/255.0 alpha:1]
 

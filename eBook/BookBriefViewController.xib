@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookBriefViewController">
             <connections>
+                <outlet property="addToShelfBtn" destination="Enj-sT-s7P" id="vcg-Z7-Woa"/>
                 <outlet property="descTextView" destination="2PN-ha-EVM" id="V6S-ZA-SnB"/>
                 <outlet property="faceImgView" destination="dm9-qK-KeN" id="udf-yF-BdE"/>
                 <outlet property="tableView" destination="6fp-uB-RPg" id="HMx-GG-p57"/>
@@ -72,7 +73,7 @@
                         <action selector="addToShelf" destination="-1" eventType="touchUpInside" id="3zk-dO-hVB"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2PN-ha-EVM">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PN-ha-EVM">
                     <rect key="frame" x="137" y="70" width="455" height="145"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

@@ -8,13 +8,62 @@
 
 #import "StructInfo.h"
 
+@implementation BookShelfInfo
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if( self )
+    {
+        self.bookName = [aDecoder decodeObjectForKey:@"bookName"];
+        self.bookDir = [aDecoder decodeObjectForKey:@"bookDir"];
+    }
+    
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.bookName forKey:@"bookName"];
+    [aCoder encodeObject:self.bookDir forKey:@"bookDir"];
+}
+
+@end
+
+
+////
+@implementation ReadInfo
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if( self )
+    {
+        self.bookName = [aDecoder decodeObjectForKey:@"bookName"];
+        self.dirName = [aDecoder decodeObjectForKey:@"dirName"];
+        self.lastPage = [aDecoder decodeObjectForKey:@"lastPage"];
+        self.lastUint = [aDecoder decodeObjectForKey:@"lastUint"];
+    }
+    
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.bookName forKey:@"bookName"];
+    [aCoder encodeObject:self.dirName forKey:@"dirName"];
+    [aCoder encodeObject:self.lastPage forKey:@"lastPage"];
+    [aCoder encodeObject:self.lastUint forKey:@"lastUint"];
+}
+
+@end
+
+////////////////////////////////////////////////////////////////////
 @implementation BookSimpleInfo
 
 -(void)fromDict:(NSDictionary*)dict
 {
     self.name = dict[@"name"];
-    self.face = dict[@"face"];
     self.desc = dict[@"desc"];
     
 }

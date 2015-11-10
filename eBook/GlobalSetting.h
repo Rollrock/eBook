@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "CommData.h"
 
 #define TEXT_COLOR_0          [UIColor colorWithPatternImage:[UIImage imageNamed:@"text_color_0"]]
 #define TEXT_COLOR_1          [UIColor colorWithPatternImage:[UIImage imageNamed:@"text_color_1"]]
@@ -25,13 +26,22 @@
 #define BG_DEFAULT_COLOR    BG_COLOR_0
 
 
-#define XIAO_FONT      [UIFont systemFontOfSize:12]
-#define ZHONG_FONT          [UIFont systemFontOfSize:15]
-#define DA_FONT         [UIFont systemFontOfSize:18]
+#define XIAO_FONT      [UIFont systemFontOfSize:16]
+#define ZHONG_FONT          [UIFont systemFontOfSize:18]
+#define DA_FONT         [UIFont systemFontOfSize:20]
 
 #define DEFAULT_FONT    ZHONG_FONT
 
 @interface GlobalSetting : NSObject
+
+
++(NSArray*)getBookShelfInfo;
++(void)setBookShelfInfo:(BookShelfInfo*)info;
+
+
++(void)setReadInfo:(ReadInfo*)info;
++(ReadInfo*)getReadInfo:(ReadInfo*)info;
+
 
 +(UIColor*)getBgColor;
 +(NSInteger)getBgColorIndex;

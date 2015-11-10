@@ -8,11 +8,18 @@
 
 #import "BookListViewController.h"
 #import "BookListTableViewCell.h"
+#import "CommData.h"
+#import "FileManager.h"
+#import "SVProgressHUD.h"
+#import "DownManager.h"
+#import "CommData.h"
+#import "BookBriefViewController.h"
+
 
 @interface BookListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong,nonatomic) NSMutableArray * listArray;
 
 
 @end
@@ -26,6 +33,47 @@
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = 100;
     
+    [self customView];
+    
+    if( ![self getBookList] )
+    {
+        //下载
+       [SVProgressHUD showWithStatus:@"下载中..."];
+            
+        __weak typeof(self) weakSelf = self;
+        
+        NSString * str = [NSString stringWithFormat:@"%@%@/目录.txt",BASE_URL,self.cateName];
+        str = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+            [[DownManager share]startDownLoad:str succ:^(NSData *data) {
+                
+                [FileManager writeDataToFile:data dir:self.cateName name:@"目录.txt"];
+                
+                __strong typeof(self) strongSelf = weakSelf;
+                
+                if( [strongSelf getBookList] )
+                {
+                    [strongSelf.tableView reloadData];
+                }
+            }];
+            
+            [SVProgressHUD showSuccessWithStatus:@"下载完成"];
+        }
+}
+
+
+-(void)customView
+{
+    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
+    leftBtn.tintColor = COMMON_BG_COLOR;
+    [self.navigationItem setLeftBarButtonItem:leftBtn];
+    
+    self.title = self.cateName;
+}
+
+-(void)leftClicked
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,7 +85,7 @@
 #pragma UITableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.listArray.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -50,22 +98,55 @@
     {
         cell = [[[NSBundle mainBundle]loadNibNamed:cellId owner:self options:nil]lastObject];
     }
-    //cell.cellDelegate = self;
     
-    //[cell refreshCell:self.hotArray[indexPath.row]];
+    [cell refreshCell:self.listArray[indexPath.row] cate:self.cateName];
     
     return cell;
-
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BookBriefViewController * vc = [[BookBriefViewController alloc]initWithNibName:@"BookBriefViewController" bundle:nil];
+    vc.dir = self.cateName;
+    vc.bookName = ((BookSimpleInfo*)(self.listArray[indexPath.row])).name;
+    vc.bookDesc = ((BookSimpleInfo*)(self.listArray[indexPath.row])).desc;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
-*/
+
+#pragma DownLoad
+-(BOOL)getBookList
+{
+    NSData * data = [FileManager getFileData:[NSString stringWithFormat:@"%@",self.cateName] name:@"目录.txt"];
+    NSDictionary * dict = [data objectFromJSONData];
+    if( dict )
+    {
+        NSArray * array = dict[@"list"];
+        for(NSDictionary * d in array )
+        {
+            BookSimpleInfo * info = [BookSimpleInfo new];
+            [info fromDict:d];
+            [self.listArray addObject:info];
+        }
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
+
+
+#pragma Init
+-(NSMutableArray*)listArray
+{
+    if( !_listArray )
+    {
+        _listArray = [NSMutableArray new];
+    }
+    
+    return _listArray;
+}
+
 
 @end

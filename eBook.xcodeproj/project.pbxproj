@@ -53,6 +53,12 @@
 		4848DD211BF048CC00FDEB7C /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD111BF048CC00FDEB7C /* UIView+WebCacheOperation.m */; };
 		4848DD251BF07D8700FDEB7C /* BookBriefTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD231BF07D8700FDEB7C /* BookBriefTableCell.m */; };
 		4848DD261BF07D8700FDEB7C /* BookBriefTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD241BF07D8700FDEB7C /* BookBriefTableCell.xib */; };
+		4848DD2D1BF1BA1200FDEB7C /* gycy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD281BF1BA1200FDEB7C /* gycy.png */; };
+		4848DD2E1BF1BA1200FDEB7C /* lmqc.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD291BF1BA1200FDEB7C /* lmqc.png */; };
+		4848DD2F1BF1BA1200FDEB7C /* wxxx.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD2A1BF1BA1200FDEB7C /* wxxx.png */; };
+		4848DD301BF1BA1200FDEB7C /* xdyq.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD2B1BF1BA1200FDEB7C /* xdyq.png */; };
+		4848DD311BF1BA1200FDEB7C /* xyly.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD2C1BF1BA1200FDEB7C /* xyly.png */; };
+		4848DD341BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD331BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m */; };
 		48955C481BEC77000063C372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C471BEC77000063C372 /* main.m */; };
 		48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4A1BEC77000063C372 /* AppDelegate.m */; };
 		48955C4E1BEC77000063C372 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4D1BEC77000063C372 /* ViewController.m */; };
@@ -188,6 +194,13 @@
 		4848DD221BF07D8700FDEB7C /* BookBriefTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookBriefTableCell.h; sourceTree = "<group>"; };
 		4848DD231BF07D8700FDEB7C /* BookBriefTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookBriefTableCell.m; sourceTree = "<group>"; };
 		4848DD241BF07D8700FDEB7C /* BookBriefTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookBriefTableCell.xib; sourceTree = "<group>"; };
+		4848DD281BF1BA1200FDEB7C /* gycy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gycy.png; sourceTree = "<group>"; };
+		4848DD291BF1BA1200FDEB7C /* lmqc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lmqc.png; sourceTree = "<group>"; };
+		4848DD2A1BF1BA1200FDEB7C /* wxxx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wxxx.png; sourceTree = "<group>"; };
+		4848DD2B1BF1BA1200FDEB7C /* xdyq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xdyq.png; sourceTree = "<group>"; };
+		4848DD2C1BF1BA1200FDEB7C /* xyly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xyly.png; sourceTree = "<group>"; };
+		4848DD321BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomHeight.h"; sourceTree = "<group>"; };
+		4848DD331BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomHeight.m"; sourceTree = "<group>"; };
 		48955C421BEC77000063C372 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48955C461BEC77000063C372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48955C471BEC77000063C372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -359,6 +372,18 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		4848DD271BF1BA1200FDEB7C /* cateIcon */ = {
+			isa = PBXGroup;
+			children = (
+				4848DD281BF1BA1200FDEB7C /* gycy.png */,
+				4848DD291BF1BA1200FDEB7C /* lmqc.png */,
+				4848DD2A1BF1BA1200FDEB7C /* wxxx.png */,
+				4848DD2B1BF1BA1200FDEB7C /* xdyq.png */,
+				4848DD2C1BF1BA1200FDEB7C /* xyly.png */,
+			);
+			path = cateIcon;
+			sourceTree = "<group>";
+		};
 		48955C391BEC77000063C372 = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +466,8 @@
 				4848DD221BF07D8700FDEB7C /* BookBriefTableCell.h */,
 				4848DD231BF07D8700FDEB7C /* BookBriefTableCell.m */,
 				4848DD241BF07D8700FDEB7C /* BookBriefTableCell.xib */,
+				4848DD321BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.h */,
+				4848DD331BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m */,
 			);
 			path = eBook;
 			sourceTree = "<group>";
@@ -483,6 +510,7 @@
 		48955C761BEC792F0063C372 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4848DD271BF1BA1200FDEB7C /* cateIcon */,
 				4848DC9B1BEE0EF400FDEB7C /* NavBack@2x.png */,
 				48955C9F1BECCACF0063C372 /* zhong.png */,
 				48955CA01BECCACF0063C372 /* xiao.png */,
@@ -604,7 +632,10 @@
 				48955CAB1BECD2740063C372 /* text_color_2.png in Resources */,
 				48955C981BECBBDA0063C372 /* SettingViewController.xib in Resources */,
 				48955CB41BECD28D0063C372 /* bg_color_1.png in Resources */,
+				4848DD2D1BF1BA1200FDEB7C /* gycy.png in Resources */,
+				4848DD2F1BF1BA1200FDEB7C /* wxxx.png in Resources */,
 				4848DCEE1BEF649000FDEB7C /* SVProgressHUD.bundle in Resources */,
+				4848DD311BF1BA1200FDEB7C /* xyly.png in Resources */,
 				48955C7B1BEC792F0063C372 /* search.png in Resources */,
 				4848DC8D1BED9F0400FDEB7C /* BookPageViewController.xib in Resources */,
 				48955C561BEC77000063C372 /* LaunchScreen.xib in Resources */,
@@ -612,6 +643,7 @@
 				48955C841BEC843E0063C372 /* del.png in Resources */,
 				48955C7C1BEC792F0063C372 /* setting.png in Resources */,
 				48955CAC1BECD2740063C372 /* text_color_1.png in Resources */,
+				4848DD2E1BF1BA1200FDEB7C /* lmqc.png in Resources */,
 				48955C7A1BEC792F0063C372 /* hot.png in Resources */,
 				48955C531BEC77000063C372 /* Images.xcassets in Resources */,
 				4848DC921BED9FA900FDEB7C /* BookDetailViewController.xib in Resources */,
@@ -621,6 +653,7 @@
 				4848DC9C1BEE0EF400FDEB7C /* NavBack@2x.png in Resources */,
 				4848DC9E1BEE23B500FDEB7C /* dayNight.png in Resources */,
 				48955CAA1BECD2740063C372 /* text_color_0.png in Resources */,
+				4848DD301BF1BA1200FDEB7C /* xdyq.png in Resources */,
 				48955C891BEC87660063C372 /* BookBriefViewController.xib in Resources */,
 				48955CA21BECCACF0063C372 /* zhong.png in Resources */,
 				4848DCDA1BEF516E00FDEB7C /* BookListViewController.xib in Resources */,
@@ -685,6 +718,7 @@
 				4848DCC61BEEE7E300FDEB7C /* DownManager.m in Sources */,
 				4848DC981BEDDDEB00FDEB7C /* SplitNSString.m in Sources */,
 				48955C881BEC87660063C372 /* BookBriefViewController.m in Sources */,
+				4848DD341BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m in Sources */,
 				4848DD131BF048CC00FDEB7C /* NSData+ImageContentType.m in Sources */,
 				4848DD1F1BF048CC00FDEB7C /* UIImageView+HighlightedWebCache.m in Sources */,
 				48955C731BEC77400063C372 /* MainViewController.m in Sources */,

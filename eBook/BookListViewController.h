@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BookListViewController : UIViewController
-
+@property(copy,nonatomic) NSString * cateName;//类别
 @end

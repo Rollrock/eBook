@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CommData.h"
+#import "StructInfo.h"
 @interface BookListTableViewCell : UITableViewCell
 
+-(void)refreshCell:(BookSimpleInfo*)info cate:(NSString*)cateName;
 @end

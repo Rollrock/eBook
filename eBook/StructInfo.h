@@ -8,9 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+//用户已经下载的书本信息
+@interface BookShelfInfo : NSObject<NSCoding>
+@property(strong,nonatomic) NSString * bookName;
+@property(strong,nonatomic) NSString * bookDir;
+@end
+
+//每本书的阅读信息保存
+@interface ReadInfo : NSObject<NSCoding>
+@property(strong,nonatomic) NSString * bookName;//
+@property(strong,nonatomic) NSString * dirName;//
+@property(strong,nonatomic) NSNumber * lastUint;//章节
+@property(strong,nonatomic) NSNumber * lastPage;//页
+@end
+
+
+//
+
 @interface BookSimpleInfo : NSObject
 @property(strong,nonatomic) NSString * name;//名字
-@property(strong,nonatomic) NSString * face;//封面
 @property(strong,nonatomic) NSString * desc;//简介
 -(void)fromDict:(NSDictionary*)dict;
 @end

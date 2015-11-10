@@ -7,7 +7,7 @@
 //
 
 #import "BookListTableViewCell.h"
-
+#import "UIImageView+WebCache.h"
 
 @interface BookListTableViewCell()
 {
@@ -30,6 +30,20 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+
+-(void)refreshCell:(BookSimpleInfo*)info cate:(NSString *)cateName
+{
+    _nameLab.text = info.name;
+    _descLab.text = info.desc;
+    
+    
+    NSString * url = [NSString stringWithFormat:@"%@%@/封面/%@.png",BASE_URL,cateName,info.name];
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [_faceImgView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"book"]];
+    
+    
 }
 
 @end

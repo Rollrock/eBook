@@ -6,6 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookCategoryViewController">
             <connections>
+                <outlet property="cateLab1" destination="rAi-fj-tnw" id="hsy-Nm-EUp"/>
+                <outlet property="cateLab2" destination="kOh-vb-8yq" id="M1A-fN-6k5"/>
+                <outlet property="cateLab3" destination="UJW-iP-fIK" id="EHi-9R-itZ"/>
+                <outlet property="cateLab4" destination="Czw-nD-Zj6" id="5mC-sG-vWz"/>
+                <outlet property="cateLab5" destination="cIy-Lp-anp" id="YaE-St-R6m"/>
+                <outlet property="cateLab6" destination="6PD-h3-V3Q" id="kti-Ui-t7Q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,73 +26,10 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RA-8C-ZKK" userLabel="ContentView">
                             <rect key="frame" x="0.0" y="0.0" width="530" height="600"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOD-ax-7de">
-                                    <rect key="frame" x="0.0" y="80" width="530" height="60"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="l0J-QD-UrC">
-                                            <rect key="frame" x="20" y="10" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="HWz-hL-LcV"/>
-                                                <constraint firstAttribute="width" constant="40" id="kuj-zU-Jya"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="20"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现代言情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-fj-tnw">
-                                            <rect key="frame" x="75" y="19" width="68" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="Qx2-eM-iNE"/>
-                                                <constraint firstAttribute="width" constant="68" id="eow-kM-Gx6"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="M3h-di-6kd">
-                                            <rect key="frame" x="193" y="10" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="SRm-Vs-fQv"/>
-                                                <constraint firstAttribute="height" constant="40" id="kBs-4O-uzL"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="20"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="古言穿越" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOh-vb-8yq">
-                                            <rect key="frame" x="248" y="20" width="68" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="04G-LM-rwZ"/>
-                                                <constraint firstAttribute="width" constant="68" id="nkh-dd-3EG"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="27L-Nn-MpO"/>
-                                        <constraint firstItem="l0J-QD-UrC" firstAttribute="leading" secondItem="GOD-ax-7de" secondAttribute="leading" constant="20" id="7ly-Nd-OUV"/>
-                                        <constraint firstAttribute="centerY" secondItem="l0J-QD-UrC" secondAttribute="centerY" id="7zI-tv-9mN"/>
-                                        <constraint firstItem="M3h-di-6kd" firstAttribute="leading" secondItem="rAi-fj-tnw" secondAttribute="trailing" constant="50" id="MEK-ae-zfK"/>
-                                        <constraint firstAttribute="centerY" secondItem="M3h-di-6kd" secondAttribute="centerY" id="bsX-IA-k7K"/>
-                                        <constraint firstItem="kOh-vb-8yq" firstAttribute="leading" secondItem="M3h-di-6kd" secondAttribute="trailing" constant="15" id="oqr-Oc-htT"/>
-                                        <constraint firstItem="rAi-fj-tnw" firstAttribute="leading" secondItem="l0J-QD-UrC" secondAttribute="trailing" constant="15" id="pQC-gP-AsK"/>
-                                        <constraint firstAttribute="centerY" secondItem="kOh-vb-8yq" secondAttribute="centerY" id="qnx-37-hy2"/>
-                                        <constraint firstAttribute="centerY" secondItem="rAi-fj-tnw" secondAttribute="centerY" id="zDS-mZ-nra"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SnL-x0-O5y">
                                     <rect key="frame" x="0.0" y="141" width="530" height="60"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="M2u-kI-h01">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lmqc.png" translatesAutoresizingMaskIntoConstraints="NO" id="M2u-kI-h01">
                                             <rect key="frame" x="20" y="10" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="O82-16-wxi"/>
@@ -99,7 +42,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浪漫青春" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJW-iP-fIK">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浪漫青春" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJW-iP-fIK">
                                             <rect key="frame" x="75" y="19" width="68" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="Cy4-b5-H9B"/>
@@ -122,7 +65,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="幻想言情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czw-nD-Zj6">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="幻想言情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czw-nD-Zj6">
                                             <rect key="frame" x="248" y="20" width="68" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="TaC-oO-msu"/>
@@ -133,7 +76,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="M2u-kI-h01" firstAttribute="leading" secondItem="SnL-x0-O5y" secondAttribute="leading" constant="20" id="87O-vW-uRl"/>
                                         <constraint firstItem="UJW-iP-fIK" firstAttribute="leading" secondItem="M2u-kI-h01" secondAttribute="trailing" constant="15" id="8GB-ge-ii4"/>
@@ -149,7 +92,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrB-3l-Im4">
                                     <rect key="frame" x="0.0" y="202" width="530" height="60"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="6kS-HC-WaR">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xyly.png" translatesAutoresizingMaskIntoConstraints="NO" id="6kS-HC-WaR">
                                             <rect key="frame" x="20" y="10" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="3oD-G2-WHH"/>
@@ -162,7 +105,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="悬疑灵异" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIy-Lp-anp">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="悬疑灵异" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIy-Lp-anp">
                                             <rect key="frame" x="75" y="19" width="68" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="BxM-g8-BMq"/>
@@ -172,7 +115,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.png" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-pI-Uyu">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wxxx.png" translatesAutoresizingMaskIntoConstraints="NO" id="YZA-pI-Uyu">
                                             <rect key="frame" x="193" y="10" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="nN3-EN-4Xd"/>
@@ -185,7 +128,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武侠仙侠" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PD-h3-V3Q">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武侠仙侠" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PD-h3-V3Q">
                                             <rect key="frame" x="248" y="20" width="68" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="68" id="09K-YQ-JQ5"/>
@@ -196,7 +139,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="cIy-Lp-anp" firstAttribute="leading" secondItem="6kS-HC-WaR" secondAttribute="trailing" constant="15" id="2d1-01-4qI"/>
                                         <constraint firstAttribute="centerY" secondItem="cIy-Lp-anp" secondAttribute="centerY" id="52K-o1-s9f"/>
@@ -209,8 +152,71 @@
                                         <constraint firstAttribute="height" constant="60" id="wKm-bI-cr4"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOD-ax-7de">
+                                    <rect key="frame" x="0.0" y="80" width="530" height="60"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xdyq.png" translatesAutoresizingMaskIntoConstraints="NO" id="l0J-QD-UrC">
+                                            <rect key="frame" x="20" y="10" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="HWz-hL-LcV"/>
+                                                <constraint firstAttribute="width" constant="40" id="kuj-zU-Jya"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gycy.png" translatesAutoresizingMaskIntoConstraints="NO" id="M3h-di-6kd">
+                                            <rect key="frame" x="193" y="10" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="SRm-Vs-fQv"/>
+                                                <constraint firstAttribute="height" constant="40" id="kBs-4O-uzL"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="古言穿越" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOh-vb-8yq">
+                                            <rect key="frame" x="248" y="20" width="68" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="04G-LM-rwZ"/>
+                                                <constraint firstAttribute="width" constant="68" id="nkh-dd-3EG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现代言情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAi-fj-tnw">
+                                            <rect key="frame" x="75" y="19" width="68" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Qx2-eM-iNE"/>
+                                                <constraint firstAttribute="width" constant="68" id="eow-kM-Gx6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="27L-Nn-MpO"/>
+                                        <constraint firstItem="l0J-QD-UrC" firstAttribute="leading" secondItem="GOD-ax-7de" secondAttribute="leading" constant="20" id="7ly-Nd-OUV"/>
+                                        <constraint firstAttribute="centerY" secondItem="l0J-QD-UrC" secondAttribute="centerY" id="7zI-tv-9mN"/>
+                                        <constraint firstItem="M3h-di-6kd" firstAttribute="leading" secondItem="rAi-fj-tnw" secondAttribute="trailing" constant="50" id="MEK-ae-zfK"/>
+                                        <constraint firstAttribute="centerY" secondItem="M3h-di-6kd" secondAttribute="centerY" id="bsX-IA-k7K"/>
+                                        <constraint firstItem="kOh-vb-8yq" firstAttribute="leading" secondItem="M3h-di-6kd" secondAttribute="trailing" constant="15" id="oqr-Oc-htT"/>
+                                        <constraint firstItem="rAi-fj-tnw" firstAttribute="leading" secondItem="l0J-QD-UrC" secondAttribute="trailing" constant="15" id="pQC-gP-AsK"/>
+                                        <constraint firstAttribute="centerY" secondItem="kOh-vb-8yq" secondAttribute="centerY" id="qnx-37-hy2"/>
+                                        <constraint firstAttribute="centerY" secondItem="rAi-fj-tnw" secondAttribute="centerY" id="zDS-mZ-nra"/>
+                                    </constraints>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="OrB-3l-Im4" firstAttribute="top" secondItem="SnL-x0-O5y" secondAttribute="bottom" constant="1" id="E7F-XS-Y8Z"/>
                                 <constraint firstAttribute="trailing" secondItem="OrB-3l-Im4" secondAttribute="trailing" id="RUn-4S-vGd"/>
@@ -242,10 +248,15 @@
                 <constraint firstAttribute="bottom" secondItem="7or-Zt-KOe" secondAttribute="bottom" id="xFb-RW-o8J"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="433" y="52"/>
+            <point key="canvasLocation" x="475" y="54"/>
         </view>
     </objects>
     <resources>
         <image name="book.png" width="126" height="175"/>
+        <image name="gycy.png" width="150" height="150"/>
+        <image name="lmqc.png" width="150" height="150"/>
+        <image name="wxxx.png" width="150" height="150"/>
+        <image name="xdyq.png" width="150" height="150"/>
+        <image name="xyly.png" width="150" height="150"/>
     </resources>
 </document>

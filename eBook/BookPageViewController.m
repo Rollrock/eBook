@@ -13,10 +13,11 @@
 #import "FileManager.h"
 #import "CommData.h"
 #import "StructInfo.h"
+#import "SVProgressHUD.h"
 
 @interface BookPageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 {
-    int curPageIndex;//当前页数
+    
 }
 @property(strong,nonatomic) BookDetailViewController * curBookVC;
 @property(strong,nonatomic) UIPageViewController * pageViewController;
@@ -64,9 +65,9 @@
     [self hideCustomView];
     
     BookDetailViewController * vc = [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];
-    vc.textStr = [self getNextPageData];//self.dataArray[++curIndex];
+    vc.textStr = [self getNextPageData];
     
-    return vc;
+    return vc.textStr? vc:nil;
 }
 
 -(UIPageViewController*)pageViewController
@@ -96,7 +97,6 @@
     {
         _curBookVC = [[BookDetailViewController alloc]initWithNibName:@"BookDetailViewController" bundle:nil];
         _curBookVC.textStr = [self getCurPageData];
-        curPageIndex = 0;
     }
     
     return _curBookVC;
@@ -110,11 +110,7 @@
         
         NSString * origStr = [FileManager getFileString:[NSString stringWithFormat:@"%@/%@",self.bookDir,self.bookName] name:[NSString stringWithFormat:@"%@.txt",((UnitInfo*)(self.listArray[self.curUint])).uintKey]];
         
-        
-        
         self.dataArray = [[SplitNSString getStringArray:origStr w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];
-        
-        curPageIndex = 0;
     }
     
     return _dataArray;
@@ -123,15 +119,27 @@
 //得到下一页的数据
 -(NSString*)getNextPageData
 {
-    ++curPageIndex;
+    ++self.curPage;
     
     //这一章完了
-    if( curPageIndex >= self.dataArray.count )
+    if( self.curPage >= self.dataArray.count )
     {
         [self.dataArray removeAllObjects];
         self.dataArray = nil;
         
         self.curUint ++;
+        
+        //NSLog(@"unitIndex:%d unitCount:%d",self.curUint,self.listArray.count);
+        
+        if( self.curUint >= self.listArray.count)
+        {
+            self.curUint = self.listArray.count-1;
+            self.curPage = self.dataArray.count-1;
+            
+            [SVProgressHUD showInfoWithStatus:@"后面没有了！"];
+            
+            return nil;
+        }
         
         //
         NSString * origStr = [FileManager getFileString:[NSString stringWithFormat:@"%@/%@",self.bookDir,self.bookName] name:[NSString stringWithFormat:@"%@.txt",((UnitInfo*)(self.listArray[self.curUint])).uintKey]];
@@ -139,20 +147,22 @@
         
         self.dataArray = [[SplitNSString getStringArray:origStr w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];
         
-        curPageIndex = 0;
+        self.curPage = 0;
     }
     
-    return self.dataArray[curPageIndex];
+    [self storeReadInfo];
+    
+    return self.dataArray[self.curPage];
 }
 
 
 //得到上一页的数据
 -(NSString*)getPrePageData
 {
-    --curPageIndex;
+    --self.curPage;
     
     //这一章完了
-    if( curPageIndex < 0 )
+    if( self.curPage < 0 )
     {
         [self.dataArray removeAllObjects];
         self.dataArray = nil;
@@ -161,6 +171,10 @@
         
         if( self.curUint < 0 )
         {
+            self.curUint = 0;
+            self.curPage = 0;
+            
+            [SVProgressHUD showInfoWithStatus:@"前面没有了！"];
             
             return nil;
         }
@@ -171,15 +185,17 @@
         
         self.dataArray = [[SplitNSString getStringArray:origStr w:[UIScreen mainScreen].bounds.size.width  h:[UIScreen mainScreen].bounds.size.height-65-10 font:[GlobalSetting getFont]] mutableCopy];
         
-        curPageIndex = _dataArray.count-1;
+        self.curPage = self.dataArray.count-1;
     }
     
-    return self.dataArray[curPageIndex];
+    [self storeReadInfo];
+    
+    return self.dataArray[self.curPage];
 }
 
 -(NSString*)getCurPageData
 {
-     return self.dataArray[curPageIndex];
+    return self.dataArray[self.curPage>=self.dataArray.count?0:self.curPage];
 }
 
 
@@ -211,6 +227,20 @@
 
 
 #pragma Other
+
+-(void)storeReadInfo
+{
+    ReadInfo * info = [ReadInfo new];
+    info.bookName = self.bookName;
+    info.dirName = self.bookDir;
+    info.lastPage = [NSNumber numberWithInteger:self.curPage];
+    info.lastUint = [NSNumber numberWithInteger:self.curUint];
+    
+    
+    NSLog(@"存储 unit:%ld page:%ld",self.curUint,self.curPage);
+    
+    [GlobalSetting setReadInfo:info];
+}
 
 -(void)dayNightClicked
 {
@@ -274,9 +304,10 @@
 -(void)customView
 {
     UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
+    leftBtn.tintColor = COMMON_BG_COLOR;
     [self.navigationItem setLeftBarButtonItem:leftBtn];
     
-    self.title = @"金瓶梅";
+    self.title = self.bookName;
 }
 
 -(void)leftClicked

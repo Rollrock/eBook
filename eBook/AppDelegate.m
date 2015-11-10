@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "CommData.h"
+#import "UINavigationBar+CustomHeight.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UINavigationBarDelegate>
 
 @end
 
@@ -25,11 +27,17 @@
     MainViewController * vc = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = nav;
-    
+    nav.navigationBar.barTintColor = COMMON_BG_COLOR;
+    [nav.navigationBar setHeight:NAV_BAR_HIEGHT];
     
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+    return UIBarPositionTopAttached;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

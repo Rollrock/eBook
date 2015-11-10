@@ -9,8 +9,19 @@
 #import "BookCategoryViewController.h"
 #import "BookListViewController.h"
 #import "UIScrollView+UITouch.h"
+#import "CommData.h"
 
 @interface BookCategoryViewController ()
+
+
+@property (weak, nonatomic) IBOutlet UILabel *cateLab1;
+@property (weak, nonatomic) IBOutlet UILabel *cateLab2;
+@property (weak, nonatomic) IBOutlet UILabel *cateLab3;
+@property (weak, nonatomic) IBOutlet UILabel *cateLab4;
+@property (weak, nonatomic) IBOutlet UILabel *cateLab5;
+@property (weak, nonatomic) IBOutlet UILabel *cateLab6;
+
+
 
 @end
 
@@ -19,7 +30,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self customView];
 }
+
+
+-(void)customView
+{
+    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
+    leftBtn.tintColor = COMMON_BG_COLOR;
+    [self.navigationItem setLeftBarButtonItem:leftBtn];
+    
+    self.title = @"所有书籍";
+}
+
+-(void)leftClicked
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -28,8 +57,35 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    BookListViewController * vc = [[BookListViewController alloc]initWithNibName:@"BookListViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+    UITouch * t = [touches anyObject];
+    CGPoint pt;
+    
+    NSString * cateName = nil;
+    
+    pt = [t locationInView:_cateLab1];
+    if( CGRectContainsPoint(_cateLab1.bounds, pt))
+    {
+        NSLog(@"现代言情");
+        
+        cateName = @"现代言情";
+    }
+    
+    
+    pt = [t locationInView:_cateLab2];
+    if( CGRectContainsPoint(_cateLab2.bounds, pt))
+    {
+        NSLog(@"古言穿越");
+        
+        cateName = @"古言穿越";
+    }
+    
+    
+    if( cateName )
+    {
+        BookListViewController * vc = [[BookListViewController alloc]initWithNibName:@"BookListViewController" bundle:nil];
+        vc.cateName = cateName;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 /*

@@ -14,6 +14,7 @@
 #import "StructInfo.h"
 #import "BookBriefViewController.h"
 #import "SVProgressHUD.h"
+#import "CommData.h"
 
 
 #define HOT_URL @"http://www.hushup.com.cn/eBook/hot/hot.txt"
@@ -33,11 +34,11 @@
     _tableView.estimatedRowHeight = 200;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    [self customView];
     
     //
     if( ![self getDataFromFile] )
-        //下载
-    {
+    {//下载
         [SVProgressHUD showWithStatus:@"下载中..."];
         
         __weak typeof(self) weakSelf = self;
@@ -116,6 +117,7 @@
     BookBriefViewController * vc = [[BookBriefViewController alloc]initWithNibName:@"BookBriefViewController" bundle:nil];
     vc.bookName = (((BookSimpleInfo*)((HotInfo*)self.hotArray[tag]).bookArray[index])).name;
     vc.bookDesc = (((BookSimpleInfo*)((HotInfo*)self.hotArray[tag]).bookArray[index])).desc;
+    vc.dir = @"hot";
     
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -130,4 +132,19 @@
     
     return _hotArray;
 }
+
+-(void)customView
+{
+    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
+    leftBtn.tintColor = COMMON_BG_COLOR;
+    [self.navigationItem setLeftBarButtonItem:leftBtn];
+    
+    //self.title = @"金瓶梅";
+}
+
+-(void)leftClicked
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

@@ -11,4 +11,5 @@
 @interface BookBriefViewController : UIViewController
 @property(copy,nonatomic) NSString * bookName;
 @property(copy,nonatomic) NSString * bookDesc;
+@property(copy,nonatomic) NSString * dir;
 @end
