@@ -30,11 +30,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.title = @"推荐";
+    
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = 200;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [self customView];
     
     //
     if( ![self getDataFromFile] )
@@ -52,9 +52,16 @@
             [strongSelf getDataFromFile];
             [strongSelf.tableView reloadData];
             
-        }];
+            [SVProgressHUD showSuccessWithStatus:@"下载完成"];
+        }
+         failed:^{
+             [SVProgressHUD showErrorWithStatus:@"下载失败，请稍后再试"];
+             
+             [self.navigationController popViewControllerAnimated:YES];
+             
+         }];
         
-        [SVProgressHUD showSuccessWithStatus:@"下载完成"];
+        
     }
 }
 
@@ -131,20 +138,6 @@
     }
     
     return _hotArray;
-}
-
--(void)customView
-{
-    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
-    leftBtn.tintColor = COMMON_BG_COLOR;
-    [self.navigationItem setLeftBarButtonItem:leftBtn];
-    
-    //self.title = @"金瓶梅";
-}
-
--(void)leftClicked
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

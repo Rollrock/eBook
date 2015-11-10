@@ -55,6 +55,7 @@
     _styleLab.backgroundColor = [GlobalSetting getBgColor];
     _styleLab.font = [GlobalSetting getFont];
     
+    self.title = @"设置";
     
     __weak typeof (self) weakSelf = self;
     
@@ -67,7 +68,7 @@
     }];
      
     
-
+/*
     [self.bgColorGroup setGroup:@[_bgColorView0,_bgColorView1,_bgColorView2,_bgColorView3] selectedIndex:[GlobalSetting getBgColorIndex] block:^(NSInteger index){
         
         __strong typeof (self) strongSelf = weakSelf;
@@ -84,7 +85,8 @@
         [GlobalSetting setTextColorOfIndex:index];
         
     }];
-    
+ */
+ 
     [self.dayNightGroup setGroup:@[_dayView,_nightView] selectedIndex:[GlobalSetting getTextColorIndex] block:^(NSInteger index){
         
         /*

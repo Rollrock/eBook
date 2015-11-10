@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface BookPageViewController : UIViewController
+@interface BookPageViewController : BaseViewController
 @property(copy,nonatomic) NSString * bookName;//
 @property(copy,nonatomic) NSString * bookDir;//
 @property(copy,nonatomic) NSArray * listArray;//存放目录

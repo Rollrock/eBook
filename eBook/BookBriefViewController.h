@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface BookBriefViewController : UIViewController
+@interface BookBriefViewController : BaseViewController
 @property(copy,nonatomic) NSString * bookName;
 @property(copy,nonatomic) NSString * bookDesc;
 @property(copy,nonatomic) NSString * dir;

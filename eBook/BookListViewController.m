@@ -33,7 +33,7 @@
     _tableView.rowHeight = UITableViewAutomaticDimension;
     _tableView.estimatedRowHeight = 100;
     
-    [self customView];
+     self.title = self.cateName;
     
     if( ![self getBookList] )
     {
@@ -55,25 +55,16 @@
                 {
                     [strongSelf.tableView reloadData];
                 }
+                
+                [SVProgressHUD showSuccessWithStatus:@"下载完成"];
+                
+            }failed:^{
+                
+                [SVProgressHUD showErrorWithStatus:@"下载失败，请稍后重试！"];
+                
+                [self.navigationController popViewControllerAnimated:YES];
             }];
-            
-            [SVProgressHUD showSuccessWithStatus:@"下载完成"];
         }
-}
-
-
--(void)customView
-{
-    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
-    leftBtn.tintColor = COMMON_BG_COLOR;
-    [self.navigationItem setLeftBarButtonItem:leftBtn];
-    
-    self.title = self.cateName;
-}
-
--(void)leftClicked
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

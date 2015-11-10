@@ -31,24 +31,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self customView];
+    self.title = @"所有书籍";
+    
+    //[self customView];
 }
 
-
+/*
 -(void)customView
 {
     UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
     leftBtn.tintColor = COMMON_BG_COLOR;
     [self.navigationItem setLeftBarButtonItem:leftBtn];
     
-    self.title = @"所有书籍";
+    
 }
 
 -(void)leftClicked
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -87,15 +89,5 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

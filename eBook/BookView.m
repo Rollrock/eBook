@@ -20,7 +20,6 @@
 
 @implementation BookView
 
-
 -(id)initWithFrame:(CGRect)frame img:(UIImage*)img
 {
     self = [super initWithFrame:frame];
@@ -29,9 +28,12 @@
     {
         image = img;
         
-        self.layer.shadowColor = [UIColor colorWithRed:1 green:255/255 blue:255/255 alpha:1].CGColor; //[UIColor blackColor].CGColor;
+        self.layer.shadowColor = [UIColor lightGrayColor].CGColor;  //[UIColor colorWithRed:1 green:255/255 blue:255/255 alpha:1].CGColor; //[UIColor blackColor].CGColor;
         self.layer.shadowOffset = CGSizeMake(5, 5);
         self.layer.shadowOpacity = 0.7;
+        
+        //self.layer.cornerRadius = 5;
+        //self.layer.masksToBounds = YES;
         
         [self addSubview:self.imgView];
         [self addSubview:self.delBtn];
@@ -64,7 +66,7 @@
     if( !_imgView )
     {
         _imgView = [[UIImageView alloc]initWithFrame:self.bounds];
-        _imgView.image = image;
+        _imgView.image = image?image:[UIImage imageNamed:@"book"];
     }
     
     return  _imgView;

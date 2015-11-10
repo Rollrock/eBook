@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface BookListViewController : UIViewController
+@interface BookListViewController : BaseViewController
 @property(copy,nonatomic) NSString * cateName;//类别
 @end

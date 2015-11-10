@@ -41,7 +41,7 @@
     
     [self initData];
     
-    [self customView];
+    self.title = self.bookName;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,21 +50,6 @@
 }
 
 #pragma InitData
-
--(void)customView
-{
-    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
-    leftBtn.tintColor = [UIColor whiteColor];
-    [self.navigationItem setLeftBarButtonItem:leftBtn];
-    
-    //self.title = @"金瓶梅";
-}
-
--(void)leftClicked
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 -(BookDetailInfo*)bookInfo
 {
@@ -101,10 +86,12 @@
         [_addToShelfBtn setTitle:@"已在书架" forState:UIControlStateNormal];
         
         //
+        
         self.bookInfo = nil;
         
         [self.bookInfo fromDict:dict];
         [self.tableView reloadData];
+        self.tableView.hidden = NO;
     }
     else
     {
@@ -192,13 +179,19 @@
         info.bookDir = self.dir;
         info.bookDesc = self.bookDesc;
         
-        [GlobalSetting setBookShelfInfo:info];
+        [GlobalSetting addBookShelfInfo:info];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_REFRESH_BOOK_SHELF object:nil];
         
+        [SVProgressHUD showSuccessWithStatus:@"下载完成"];
+    } failed:^{
+        
+        [SVProgressHUD showErrorWithStatus:@"下载失败，请稍后重试！"];
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     
-    [SVProgressHUD showSuccessWithStatus:@"下载完成"];
+    
 
 }
 @end

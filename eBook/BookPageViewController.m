@@ -38,7 +38,7 @@
     
     [self addGesture];
     
-    [self customView];
+    self.title = self.bookName;
     
     [self.view addSubview:self.buttomView];
 }
@@ -297,21 +297,6 @@
     }completion:^(BOOL finished) {
         
     }];
-
-}
-
--(void)customView
-{
-    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
-    leftBtn.tintColor = COMMON_BG_COLOR;
-    [self.navigationItem setLeftBarButtonItem:leftBtn];
-    
-    self.title = self.bookName;
-}
-
--(void)leftClicked
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

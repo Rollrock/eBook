@@ -10,12 +10,15 @@
 
 
 typedef void(^DownLoadComplete) (NSData*data);
+typedef void(^DownLoadFailed)();
 
 @interface DownManager : NSObject
 
 +(DownManager*)share;
--(void)startDownLoad:(NSString*)strUrl succ:(DownLoadComplete)succ;
+//-(void)startDownLoad:(NSString*)strUrl succ:(DownLoadComplete)succ;
+-(void)startDownLoad:(NSString*)strUrl succ:(DownLoadComplete)succ failed:(DownLoadFailed)failed;
 
 @property(copy,nonatomic) DownLoadComplete downComplete;
+@property(copy,nonatomic) DownLoadFailed downFailed;
 
 @end

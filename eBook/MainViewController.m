@@ -30,7 +30,7 @@
 @property(strong,nonatomic) UIScrollView * bookScroll;
 
 //
-@property (strong,nonatomic) NSArray * bookShelfArray;
+@property (strong,nonatomic) NSMutableArray * bookShelfArray;
 @property (weak, nonatomic) IBOutlet UIView *bookScrollBgView;
 
 @end
@@ -56,14 +56,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma Init
-
--(NSArray*)bookShelfArray
+-(NSMutableArray*)bookShelfArray
 {
     if( !_bookShelfArray )
     {
-        _bookShelfArray = [[GlobalSetting getBookShelfInfo] copy];
+        _bookShelfArray = [[GlobalSetting getBookShelfInfo] mutableCopy];
     }
     
     return _bookShelfArray;
@@ -74,7 +72,7 @@
     if( !_bookScroll )
     {
         _bookScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width,_bookScrollBgView.frame.size.height)];
-        _bookScroll.backgroundColor = [UIColor blackColor];
+        _bookScroll.backgroundColor = [UIColor lightGrayColor];
     }
     
     return _bookScroll;
@@ -118,8 +116,9 @@
     
     if( self.bookShelfArray.count == 0 )
     {
-        //
-        
+        UIImageView * imgView = [[UIImageView alloc]initWithFrame:CGRectMake(SHELF_BOOK_DIS, SHELF_BOOK_DIS, SHELF_BOOK_WIDTH, SHELF_BOOK_HEIGHT)];
+        imgView.image = [UIImage imageNamed:@"book"];
+        [_bookScroll addSubview:imgView];
     }
 }
 
@@ -183,6 +182,10 @@
 -(void)delClicked:(NSInteger)tag
 {
     NSLog(@"delClicked tag:%ld",tag);
+    
+    [self.bookShelfArray removeObjectAtIndex:tag];
+    [GlobalSetting setBookShelfInfo:self.bookShelfArray];
+    [self refreshBookView];
 }
 
 

@@ -20,7 +20,7 @@
 //
 @implementation GlobalSetting
 
-+(void)setBookShelfInfo:(BookShelfInfo*)info
++(void)addBookShelfInfo:(BookShelfInfo*)info
 {
     NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
     NSData * data = [def objectForKey:STORE_BOOKSHELF_INFO];
@@ -48,10 +48,18 @@
         [array addObject:info];
     }
     
-    
     data = [NSKeyedArchiver archivedDataWithRootObject:array];
     [def setObject:data forKey:STORE_BOOKSHELF_INFO];
     
+    [def synchronize];
+}
+
++(void)setBookShelfInfo:(NSArray*)array
+{
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:array];
+    
+    [def setObject:data forKey:STORE_BOOKSHELF_INFO];
     [def synchronize];
 }
 

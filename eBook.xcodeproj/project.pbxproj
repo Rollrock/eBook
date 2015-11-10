@@ -59,6 +59,7 @@
 		4848DD301BF1BA1200FDEB7C /* xdyq.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD2B1BF1BA1200FDEB7C /* xdyq.png */; };
 		4848DD311BF1BA1200FDEB7C /* xyly.png in Resources */ = {isa = PBXBuildFile; fileRef = 4848DD2C1BF1BA1200FDEB7C /* xyly.png */; };
 		4848DD341BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD331BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m */; };
+		4848DD371BF20E9F00FDEB7C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4848DD361BF20E9F00FDEB7C /* BaseViewController.m */; };
 		48955C481BEC77000063C372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C471BEC77000063C372 /* main.m */; };
 		48955C4B1BEC77000063C372 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4A1BEC77000063C372 /* AppDelegate.m */; };
 		48955C4E1BEC77000063C372 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48955C4D1BEC77000063C372 /* ViewController.m */; };
@@ -201,6 +202,8 @@
 		4848DD2C1BF1BA1200FDEB7C /* xyly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xyly.png; sourceTree = "<group>"; };
 		4848DD321BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomHeight.h"; sourceTree = "<group>"; };
 		4848DD331BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomHeight.m"; sourceTree = "<group>"; };
+		4848DD351BF20E9F00FDEB7C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		4848DD361BF20E9F00FDEB7C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		48955C421BEC77000063C372 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48955C461BEC77000063C372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48955C471BEC77000063C372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -468,6 +471,8 @@
 				4848DD241BF07D8700FDEB7C /* BookBriefTableCell.xib */,
 				4848DD321BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.h */,
 				4848DD331BF1CE0800FDEB7C /* UINavigationBar+CustomHeight.m */,
+				4848DD351BF20E9F00FDEB7C /* BaseViewController.h */,
+				4848DD361BF20E9F00FDEB7C /* BaseViewController.m */,
 			);
 			path = eBook;
 			sourceTree = "<group>";
@@ -702,6 +707,7 @@
 				4848DCBD1BEE2DC100FDEB7C /* ioapi.c in Sources */,
 				4848DD201BF048CC00FDEB7C /* UIImageView+WebCache.m in Sources */,
 				4848DCE21BEF59FE00FDEB7C /* UIScrollView+UITouch.m in Sources */,
+				4848DD371BF20E9F00FDEB7C /* BaseViewController.m in Sources */,
 				4848DD1B1BF048CC00FDEB7C /* UIButton+WebCache.m in Sources */,
 				4848DD171BF048CC00FDEB7C /* SDWebImageDownloader.m in Sources */,
 				4848DD1E1BF048CC00FDEB7C /* UIImage+WebP.m in Sources */,

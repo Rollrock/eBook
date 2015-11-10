@@ -36,7 +36,8 @@
 
 
 +(NSArray*)getBookShelfInfo;
-+(void)setBookShelfInfo:(BookShelfInfo*)info;
++(void)addBookShelfInfo:(BookShelfInfo*)info;
++(void)setBookShelfInfo:(NSArray*)array;
 
 
 +(void)setReadInfo:(ReadInfo*)info;

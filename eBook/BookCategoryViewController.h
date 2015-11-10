@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface BookCategoryViewController : UIViewController
+@interface BookCategoryViewController : BaseViewController
 
 @end
