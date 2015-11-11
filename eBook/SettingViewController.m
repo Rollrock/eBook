@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *xiaoFontView;
 @property (weak, nonatomic) IBOutlet UIImageView *zhongFontView;
 @property (weak, nonatomic) IBOutlet UIImageView *daFontView;
+@property (weak, nonatomic) IBOutlet UIImageView *teFontView;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgColorView0;
@@ -25,17 +26,21 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bgColorView3;
 
 
-
-@property (weak, nonatomic) IBOutlet UIImageView *textColorView0;
-@property (weak, nonatomic) IBOutlet UIImageView *textColorView1;
-@property (weak, nonatomic) IBOutlet UIImageView *textColorView2;
-@property (weak, nonatomic) IBOutlet UIImageView *textColorView3;
-
 @property (weak, nonatomic) IBOutlet UIImageView *dayView;
 @property (weak, nonatomic) IBOutlet UIImageView *nightView;
 
 
+//
+@property (weak, nonatomic) IBOutlet UIImageView *colorView1;
+@property (weak, nonatomic) IBOutlet UIImageView *colorView2;
+@property (weak, nonatomic) IBOutlet UIImageView *colorView3;
+@property (weak, nonatomic) IBOutlet UIImageView *colorView4;
+@property (weak, nonatomic) IBOutlet UIImageView *colorView5;
+@property (weak, nonatomic) IBOutlet UIImageView *colorView6;
+@property (weak, nonatomic) IBOutlet UIImageView *colorView7;
 
+
+@property(strong,nonatomic) NSArray * colorArray;
 
 @property(strong,nonatomic) RadioGroup * fontGroup;
 @property(strong,nonatomic) RadioGroup * bgColorGroup;
@@ -51,50 +56,72 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    _styleLab.textColor = [GlobalSetting getTextColor];
-    _styleLab.backgroundColor = [GlobalSetting getBgColor];
+    _styleLab.textColor = [GlobalSetting getColor][0];
+    _styleLab.backgroundColor = [UIColor colorWithPatternImage:[GlobalSetting getColor][1]];
     _styleLab.font = [GlobalSetting getFont];
     
     self.title = @"设置";
     
+    
+    for( UIView * view in self.colorArray )
+    {
+        view.userInteractionEnabled = ![GlobalSetting getDayNightIndex];
+    }
+    
+    //
     __weak typeof (self) weakSelf = self;
     
-    [self.fontGroup setGroup:@[_xiaoFontView,_zhongFontView,_daFontView] selectedIndex:[GlobalSetting getFontIndex] block:^(NSInteger index){
+    [self.fontGroup setGroup:@[_xiaoFontView,_zhongFontView,_daFontView,_teFontView] selectedIndex:[GlobalSetting getFontIndex] block:^(NSInteger index){
         
         __strong typeof (self) strongSelf = weakSelf;
         
         strongSelf.styleLab.font = [GlobalSetting getFontOfIndex:index];
         [GlobalSetting setFontOfIndex:index];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_REFRESH_BOOK_DETAIL_FONT object:nil];
     }];
-     
     
-/*
-    [self.bgColorGroup setGroup:@[_bgColorView0,_bgColorView1,_bgColorView2,_bgColorView3] selectedIndex:[GlobalSetting getBgColorIndex] block:^(NSInteger index){
+    
+    [self.bgColorGroup setGroup:self.colorArray selectedIndex:[GlobalSetting getColorIndex] block:^(NSInteger index){
         
         __strong typeof (self) strongSelf = weakSelf;
-        strongSelf.styleLab.backgroundColor = [GlobalSetting getBgColorOfIndex:index];
-        [GlobalSetting setBgColorOfIndex:index];
+        
+        [GlobalSetting setColorOfIndex:index];
+        
+        strongSelf.styleLab.textColor = [GlobalSetting getColor][0];
+        strongSelf.styleLab.backgroundColor = [UIColor colorWithPatternImage:[GlobalSetting getColor][1]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_REFRESH_BOOK_DETAIL_COLOR object:nil];
         
     }];
-
-    
-    [self.textColorGroup setGroup:@[_textColorView0,_textColorView1,_textColorView2,_textColorView3] selectedIndex:[GlobalSetting getTextColorIndex] block:^(NSInteger index){
-        
-        __strong typeof (self) strongSelf = weakSelf;
-        strongSelf.styleLab.textColor = [GlobalSetting getTextColorOfIndex:index];
-        [GlobalSetting setTextColorOfIndex:index];
-        
-    }];
- */
  
-    [self.dayNightGroup setGroup:@[_dayView,_nightView] selectedIndex:[GlobalSetting getTextColorIndex] block:^(NSInteger index){
-        
-        /*
+    [self.dayNightGroup setGroup:@[_dayView,_nightView] selectedIndex:[GlobalSetting getDayNightIndex] block:^(NSInteger index){
+    
         __strong typeof (self) strongSelf = weakSelf;
-        strongSelf.styleLab.textColor = [GlobalSetting getTextColorOfIndex:index];
-        [GlobalSetting setTextColorOfIndex:index];
-         */
         
+        [GlobalSetting setDayNightIndex:index];
+        
+        //night
+        if( index == 1 )
+        {
+            for( UIView * view in strongSelf.colorArray )
+            {
+                view.userInteractionEnabled = NO;
+            }
+        }
+        else
+        {
+            for( UIView * view in strongSelf.colorArray )
+            {
+                view.userInteractionEnabled = YES;
+            }
+        }
+        
+        strongSelf.styleLab.textColor = [GlobalSetting getColor][0];
+        strongSelf.styleLab.backgroundColor = [UIColor colorWithPatternImage:[GlobalSetting getColor][1]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_REFRESH_BOOK_DETAIL_COLOR object:nil];
+
     }];
 }
 
@@ -136,6 +163,19 @@
     }
     
     return _dayNightGroup;
+}
+
+
+#pragma Other
+
+-(NSArray*)colorArray
+{
+    if( !_colorArray )
+    {
+        _colorArray =  @[_colorView1,_colorView2,_colorView3,_colorView4,_colorView5,_colorView6,_colorView7];
+    }
+    
+    return _colorArray;
 }
 
 #pragma System

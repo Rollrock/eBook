@@ -27,6 +27,9 @@
     self.textLab.text = _textStr;
     
     [self.textLab sizeToFit];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshColor) name:NOTI_REFRESH_BOOK_DETAIL_COLOR object:nil];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +39,6 @@
 
 
 #pragma InitView
-
 -(UILabel*)textLab
 {
     if( !_textLab )
@@ -45,9 +47,26 @@
         _textLab.textAlignment = NSTextAlignmentLeft;
         _textLab.numberOfLines = 0;
         _textLab.font = [GlobalSetting getFont];
+        
+        _textLab.textColor = [GlobalSetting getColor][0];
+        _textLab.backgroundColor = [UIColor clearColor];
+        self.view.layer.contents = (id)((UIImage*)[GlobalSetting getColor][1]).CGImage;
     }
     
     return _textLab;
 }
 
+#pragma Event
+-(void)refreshColor
+{
+    _textLab.textColor = [GlobalSetting getColor][0];
+    self.view.layer.contents = (id)((UIImage*)[GlobalSetting getColor][1]).CGImage;
+}
+
+-(void)refreshFont
+{
+    _textLab.font = [GlobalSetting getFont];
+    _textLab.text = _textStr;
+    [self.textLab sizeToFit];
+}
 @end

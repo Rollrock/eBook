@@ -93,7 +93,6 @@
         [self.tableView reloadData];
         self.tableView.hidden = NO;
         
-        
         //
         for( BookShelfInfo * info  in [GlobalSetting getBookShelfInfo] )
         {
@@ -103,6 +102,17 @@
                 _addToShelfBtn.enabled = NO;
                 break;
             }
+        }
+        
+        //
+        ReadInfo * read = [ReadInfo new];
+        read.bookName = self.bookName;
+        read.dirName = self.dir;
+        
+        read = [GlobalSetting getReadInfo:read];
+        if( ([read.lastPage integerValue] != 0) || ([read.lastUint integerValue] != 0))
+        {
+            [_readBtn setTitle:@"继续上次阅读" forState:UIControlStateNormal];
         }
     }
     else

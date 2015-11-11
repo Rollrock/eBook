@@ -45,12 +45,9 @@
     {
         UIView * view = self.viewArray[index];
         view.tag = index;
-        view.userInteractionEnabled = YES;
-        
-        //view.backgroundColor = (index == selectIndex)? SELECTED_COLOR:UNSELECT_COLOR;
         
         view.layer.borderColor = (index == selectIndex)? SELECTED_COLOR:UNSELECT_COLOR;
-        view.layer.borderWidth = 3;
+        view.layer.borderWidth = 2;
         
         
         UITapGestureRecognizer * g = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewClicked:)];

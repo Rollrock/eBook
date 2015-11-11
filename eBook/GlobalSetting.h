@@ -10,25 +10,19 @@
 #import <UIKit/UIKit.h>
 #import "CommData.h"
 
-#define TEXT_COLOR_0          [UIColor colorWithPatternImage:[UIImage imageNamed:@"text_color_0"]]
-#define TEXT_COLOR_1          [UIColor colorWithPatternImage:[UIImage imageNamed:@"text_color_1"]]
-#define TEXT_COLOR_2          [UIColor colorWithPatternImage:[UIImage imageNamed:@"text_color_2"]]
-#define TEXT_COLOR_3          [UIColor colorWithPatternImage:[UIImage imageNamed:@"text_color_3"]]
-#define TEXT_DEFAULT_COLOR TEXT_COLOR_0
+#define TEXT_COLOR_ARRAY   (@[ [UIColor whiteColor],[UIColor blackColor],[UIColor whiteColor],[UIColor blackColor],[UIColor whiteColor],[UIColor blackColor] ,[UIColor blackColor]  ])
+
+#define BG_COLOR_ARRAY  (@[[UIImage imageNamed:@"text_bg_1"],[UIImage imageNamed:@"text_bg_2"],[UIImage imageNamed:@"text_bg_3"],[UIImage imageNamed:@"text_bg_4"],[UIImage imageNamed:@"text_bg_5"],[UIImage imageNamed:@"text_bg_6"],[UIImage imageNamed:@"text_bg_7"] ])
 
 
-#define BG_COLOR_0          [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_color_0"]]
-#define BG_COLOR_1          [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_color_1"]]
-#define BG_COLOR_2          [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_color_2"]]
-#define BG_COLOR_3          [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_color_3"]]
+#define NIGHT_TEXT_COLOR  [UIColor whiteColor]
+#define NIGHT_BG_COLOR [UIImage imageNamed:@"text_bg_5"]
 
 
-#define BG_DEFAULT_COLOR    BG_COLOR_0
-
-
-#define XIAO_FONT      [UIFont systemFontOfSize:16]
+#define XIAO_FONT           [UIFont systemFontOfSize:16]
 #define ZHONG_FONT          [UIFont systemFontOfSize:18]
-#define DA_FONT         [UIFont systemFontOfSize:20]
+#define DA_FONT             [UIFont systemFontOfSize:20]
+#define TE_FONT             [UIFont systemFontOfSize:22]
 
 #define DEFAULT_FONT    ZHONG_FONT
 
@@ -39,21 +33,18 @@
 +(void)addBookShelfInfo:(BookShelfInfo*)info;
 +(void)setBookShelfInfo:(NSArray*)array;
 
-
 +(void)setReadInfo:(ReadInfo*)info;
 +(ReadInfo*)getReadInfo:(ReadInfo*)info;
 
 
-+(UIColor*)getBgColor;
-+(NSInteger)getBgColorIndex;
-+(UIColor*)getBgColorOfIndex:(NSInteger)index;
-+(void)setBgColorOfIndex:(NSInteger)index;
++(NSInteger)getDayNightIndex;
++(void)setDayNightIndex:(NSInteger)index;
 
 
-+(UIColor*)getTextColor;
-+(NSInteger)getTextColorIndex;
-+(UIColor*)getTextColorOfIndex:(NSInteger)index;
-+(void)setTextColorOfIndex:(NSInteger)index;
++(NSArray*)getColor;
++(NSInteger)getColorIndex;
++(NSArray*)getColorOfIndex:(NSInteger)index;
++(void)setColorOfIndex:(NSInteger)index;
 
 
 +(UIFont*)getFont;

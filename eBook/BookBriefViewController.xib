@@ -33,11 +33,11 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66o-HQ-qB6">
-                    <rect key="frame" x="20" y="220" width="80" height="40"/>
+                    <rect key="frame" x="20" y="220" width="110" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="BzY-cM-XDa"/>
-                        <constraint firstAttribute="width" constant="80" id="JTx-ST-GVR"/>
+                        <constraint firstAttribute="width" constant="110" id="JTx-ST-GVR"/>
                     </constraints>
                     <state key="normal" title="阅读">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -61,11 +61,11 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enj-sT-s7P">
-                    <rect key="frame" x="122" y="220" width="80" height="40"/>
+                    <rect key="frame" x="152" y="220" width="90" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.6588235294" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="EXe-zd-rMO"/>
-                        <constraint firstAttribute="width" constant="80" id="Mmn-Or-7Dh"/>
+                        <constraint firstAttribute="width" constant="90" id="Mmn-Or-7Dh"/>
                     </constraints>
                     <state key="normal" title="加入书架">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

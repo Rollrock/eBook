@@ -10,4 +10,7 @@
 
 @interface BookDetailViewController : UIViewController
 @property(copy,nonatomic) NSString * textStr;
+
+-(void)refreshFont;
+
 @end

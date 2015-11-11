@@ -15,7 +15,7 @@
 #import "GlobalSetting.h"
 #import "BookCategoryViewController.h"
 
-#define SHELF_BOOK_WIDTH 100 //书架一本书宽度
+#define SHELF_BOOK_WIDTH 110 //书架一本书宽度
 #define SHELF_BOOK_HEIGHT 160 //书架一本书宽度
 #define SHELF_BOOK_DIS 10 //每本书之间的间隙
 
@@ -71,8 +71,10 @@
 {
     if( !_bookScroll )
     {
-        _bookScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width,_bookScrollBgView.frame.size.height)];
-        _bookScroll.backgroundColor = [UIColor lightGrayColor];
+        _bookScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width-20,_bookScrollBgView.frame.size.height)];
+        _bookScroll.showsHorizontalScrollIndicator = NO;
+        _bookScroll.showsVerticalScrollIndicator = NO;
+        _bookScroll.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];//[UIColor lightGrayColor];
     }
     
     return _bookScroll;

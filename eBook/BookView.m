@@ -15,6 +15,7 @@
 
 @property(strong,nonatomic) UIImageView * imgView;
 @property(strong,nonatomic) UIButton * delBtn;
+@property(strong,nonatomic) UIImageView * bgView;
 @end
 
 
@@ -28,13 +29,14 @@
     {
         image = img;
         
-        self.layer.shadowColor = [UIColor lightGrayColor].CGColor;  //[UIColor colorWithRed:1 green:255/255 blue:255/255 alpha:1].CGColor; //[UIColor blackColor].CGColor;
-        self.layer.shadowOffset = CGSizeMake(5, 5);
-        self.layer.shadowOpacity = 0.7;
+        //self.layer.shadowColor = [UIColor lightGrayColor].CGColor;  //[UIColor colorWithRed:1 green:255/255 blue:255/255 alpha:1].CGColor; //[UIColor blackColor].CGColor;
+        //self.layer.shadowOffset = CGSizeMake(5, 5);
+        //self.layer.shadowOpacity = 0.7;
         
-        //self.layer.cornerRadius = 5;
-        //self.layer.masksToBounds = YES;
-        
+        self.layer.cornerRadius = 8;
+        self.layer.masksToBounds = YES;
+
+        [self addSubview:self.bgView];
         [self addSubview:self.imgView];
         [self addSubview:self.delBtn];
         
@@ -65,11 +67,22 @@
 {
     if( !_imgView )
     {
-        _imgView = [[UIImageView alloc]initWithFrame:self.bounds];
+        _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width-6, self.bounds.size.height-8)];
         _imgView.image = image?image:[UIImage imageNamed:@"book"];
     }
     
     return  _imgView;
+}
+
+-(UIImageView*)bgView
+{
+    if( !_bgView )
+    {
+        _bgView = [[UIImageView alloc]initWithFrame:self.bounds];
+        _bgView.image = [UIImage imageNamed:@"book_bg_1"];
+    }
+    
+    return _bgView;
 }
 
 #pragma Gesture

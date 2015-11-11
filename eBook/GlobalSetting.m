@@ -10,9 +10,8 @@
 #import "StructInfo.h"
 
 #define STORE_FONT          @"STORE_FONT"
-#define STORE_TEXT_COLOR    @"STORE_TEXT_COLOR"
-#define STORE_BG_COLOR      @"STORE_BG_COLOR"
-#define STORE_NIGHT_STYLE   @"STORE_NIGHT_STYLE"
+#define STORE_COLOR      @"STORE_COLOR"
+#define STORE_DAY_NIGHT   @"STORE_DAY_NIGHT"
 
 #define STORE_READ_INFO  @"STORE_READ_INFO"
 #define STORE_BOOKSHELF_INFO @"STORE_BOOKSHELF_INFo"
@@ -133,98 +132,61 @@
     return retInfo;
 }
 
+////////////////////////////////////////////////////////////////////////////
+
+
++(NSInteger)getDayNightIndex
+{
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    NSInteger b = [def boolForKey:STORE_DAY_NIGHT];
+    return b;
+}
+
++(void)setDayNightIndex:(NSInteger)index
+{
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    [def setBool:index forKey:STORE_DAY_NIGHT];
+    [def synchronize];
+}
 
 ////////////////////////////////////////////////////////////////////////////
 
-+(UIColor*)getBgColor
++(NSArray*)getColor
 {
     NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
-    NSInteger index = [def integerForKey:STORE_BG_COLOR];
+    NSInteger index = [def integerForKey:STORE_COLOR];
     
-    return [self getBgColorOfIndex:index];
+    return [self getColorOfIndex:index];
 }
 
-+(NSInteger)getBgColorIndex
++(NSInteger)getColorIndex
 {
     NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
 
-    return  [def integerForKey:STORE_BG_COLOR];
+    return  [def integerForKey:STORE_COLOR];
 }
 
-+(UIColor*)getBgColorOfIndex:(NSInteger)index
++(NSArray*)getColorOfIndex:(NSInteger)index
 {
-    if( 0 == index )
+    if( ![self getDayNightIndex] )
     {
-        return BG_COLOR_0;
-    }
-    else if( 1 == index )
-    {
-        return  BG_COLOR_1;
-    }
-    else if( 2 == index )
-    {
-        return BG_COLOR_2;
-    }
-    else if( 3 == index )
-    {
-        return BG_COLOR_3;
+        NSArray * array = @[TEXT_COLOR_ARRAY[index],BG_COLOR_ARRAY[index]];
+        return array;
     }
     else
     {
-        return BG_COLOR_0;
+        return @[NIGHT_TEXT_COLOR,NIGHT_BG_COLOR];
     }
 }
 
-+(void)setBgColorOfIndex:(NSInteger)index
++(void)setColorOfIndex:(NSInteger)index
 {
     NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
-    [def setInteger:index forKey:STORE_BG_COLOR];
+    [def setInteger:index forKey:STORE_COLOR];
     
     [def synchronize];
 }
 
-//
-+(UIColor*)getTextColor
-{
-    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
-    NSInteger index = [def integerForKey:STORE_TEXT_COLOR];
-    
-    return [self getTextColorOfIndex:index];
-}
-
-+(NSInteger)getTextColorIndex
-{
-    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
-    return  [def integerForKey:STORE_TEXT_COLOR];
-}
-
-+(UIColor*)getTextColorOfIndex:(NSInteger)index
-{
-    if( 0 == index )
-    {
-        return TEXT_COLOR_0;
-    }
-    else if( 1 == index )
-    {
-        return  TEXT_COLOR_1;
-    }
-    else if( 2 == index )
-    {
-        return TEXT_COLOR_1;
-    }
-    else
-    {
-        return TEXT_COLOR_0;
-    }
-}
-
-+(void)setTextColorOfIndex:(NSInteger)index
-{
-    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
-    [def setInteger:index forKey:STORE_TEXT_COLOR];
-    
-    [def synchronize];
-}
 
 /////
 +(UIFont*)getFont
@@ -254,6 +216,10 @@
     else if( 2 == index )
     {
         return DA_FONT;
+    }
+    else if( 3 == index )
+    {
+        return TE_FONT;
     }
     else
     {
