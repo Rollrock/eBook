@@ -33,24 +33,8 @@
     
     self.title = @"所有书籍";
     
-    //[self customView];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(layoutAdv) userInfo:nil repeats:NO];
 }
-
-/*
--(void)customView
-{
-    UIBarButtonItem * leftBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(leftClicked)];
-    leftBtn.tintColor = COMMON_BG_COLOR;
-    [self.navigationItem setLeftBarButtonItem:leftBtn];
-    
-    
-}
-
--(void)leftClicked
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -89,5 +73,24 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+#pragma ADV
+-(void)layoutAdv
+{
+    BaiduMobAdView * _baiduView = [[BaiduMobAdView alloc]init];
+    _baiduView.AdUnitTag = BAIDU_ADV_ID;
+    _baiduView.AdType = BaiduMobAdViewTypeBanner;
+    _baiduView.frame = CGRectMake(0, 53, [UIScreen mainScreen].bounds.size.width, kBaiduAdViewBanner468x60.height);
+    _baiduView.delegate = self;
+    [self.view addSubview:_baiduView];
+    
+    [_baiduView start];
+}
+
+- (NSString *)publisherId
+{
+    return  BAIDU_APP_ID;//@"c5477a92";//;
+}
+
 
 @end

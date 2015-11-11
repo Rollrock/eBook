@@ -26,6 +26,9 @@
 #define UM_SHARE_KEY  @"55b06037e0f55a4422004da7"
 
 
+#define BAIDU_APP_ID @"af3eb27c"
+#define BAIDU_ADV_ID @"2080903"
+
 
 //刷新主页书架用
 #define NOTI_REFRESH_BOOK_SHELF  @"NOTI_REFRESH_BOOK_SHELF"

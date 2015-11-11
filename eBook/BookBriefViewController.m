@@ -45,6 +45,9 @@
     [self initData];
     
     self.title = self.bookName;
+    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(layoutAdv) userInfo:nil repeats:NO];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,7 +94,7 @@
         self.bookInfo = nil;
         [self.bookInfo fromDict:dict];
         [self.tableView reloadData];
-        self.tableView.hidden = NO;
+        //self.tableView.hidden = NO;
         
         //
         for( BookShelfInfo * info  in [GlobalSetting getBookShelfInfo] )
@@ -227,6 +230,25 @@
         }];
 
     }
+}
+
+-(void)layoutAdv
+{
+    BaiduMobAdView * _baiduView = [[BaiduMobAdView alloc]init];
+    _baiduView.AdUnitTag = BAIDU_ADV_ID;
+    _baiduView.AdType = BaiduMobAdViewTypeBanner;
+    _baiduView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kBaiduAdViewSquareBanner600x500.height);
+    _baiduView.delegate = self;
+    //[self.view addSubview:_baiduView];
     
+    [self.tableView addSubview:_baiduView];
+    self.tableView.hidden = NO;
+    
+    [_baiduView start];
+}
+
+- (NSString *)publisherId
+{
+    return  BAIDU_APP_ID;//@"c5477a92";//;
 }
 @end

@@ -14,6 +14,7 @@
 #import "BookCategoryViewController.h"
 #import "GlobalSetting.h"
 #import "BookCategoryViewController.h"
+#import "OtherViewController.h"
 
 #define SHELF_BOOK_WIDTH 110 //书架一本书宽度
 #define SHELF_BOOK_HEIGHT 160 //书架一本书宽度
@@ -23,6 +24,7 @@
 #define HOT_VIEW_TAG  1001
 #define SEARCH_VIEW_TAG 1002
 #define SETTING_VIEW_TAG  1003
+#define OTHER_VIEW_TAG  1004
 
 
 @interface MainViewController ()<ClickDelegate>
@@ -160,6 +162,16 @@
         
         return;
     }
+    
+    pt = [t locationInView:[self.view viewWithTag:OTHER_VIEW_TAG]];
+    if( CGRectContainsPoint([self.view viewWithTag:OTHER_VIEW_TAG].bounds,pt))
+    {
+        OtherViewController * vc = [[OtherViewController alloc]initWithNibName:@"OtherViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        return;
+    }
+
 }
 
 #pragma BookViewDelegate

@@ -41,6 +41,8 @@
     
     self.title = self.bookName;
     
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(layoutAdv) userInfo:nil repeats:NO];
+    
     [self.view addSubview:self.buttomView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshFont) name:NOTI_REFRESH_BOOK_DETAIL_FONT object:nil];
@@ -279,11 +281,10 @@
 {
     if(!_buttomView)
     {
-        _buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-40, [UIScreen mainScreen].bounds.size.width,40)];
+        _buttomView = [[UIView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-kBaiduAdViewBanner320x48.height, [UIScreen mainScreen].bounds.size.width,kBaiduAdViewBanner320x48.height)];
         _buttomView.backgroundColor = [UIColor whiteColor];
         
         //
-        
         UIButton * dayBtn = [[UIButton alloc]initWithFrame:CGRectMake(_buttomView.frame.size.width - 50, 5, 30, 30)];
         [dayBtn setBackgroundImage:[UIImage imageNamed:(![GlobalSetting getDayNightIndex])?@"moom":@"sun"] forState:UIControlStateNormal];
         [dayBtn addTarget:self action:@selector(dayNightClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -306,11 +307,11 @@
         
         if( _buttomView.center.y > [UIScreen mainScreen].bounds.size.height )
         {
-            _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height-20);
+            _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height-kBaiduAdViewBanner320x48.height/2);
         }
         else
         {
-            _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height+20);
+            _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height+kBaiduAdViewBanner320x48.height/2);
         }
         
     }completion:^(BOOL finished) {
@@ -327,12 +328,30 @@
         
     if( _buttomView.center.y < [UIScreen mainScreen].bounds.size.height )
     {
-        _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height+30);
+        _buttomView.center = CGPointMake(_buttomView.center.x, [UIScreen mainScreen].bounds.size.height+kBaiduAdViewBanner320x48.height/2);
     }
         
     }completion:^(BOOL finished) {
         
     }];
 }
+
+#pragma ADV
+-(void)layoutAdv
+{
+    BaiduMobAdView * _baiduView = [[BaiduMobAdView alloc]init];
+    _baiduView.AdUnitTag = BAIDU_ADV_ID;//@"2061767";// 
+    _baiduView.AdType = BaiduMobAdViewTypeBanner;
+    _baiduView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width-kBaiduAdViewBanner320x48.width)/2, [UIScreen mainScreen].bounds.size.height-kBaiduAdViewBanner320x48.height, kBaiduAdViewBanner320x48.width, kBaiduAdViewBanner320x48.height);
+    _baiduView.delegate = self;
+    [self.view insertSubview:_baiduView belowSubview:self.buttomView];
+    [_baiduView start];
+}
+
+- (NSString *)publisherId
+{
+    return  BAIDU_APP_ID;//@"c5477a92";//;
+}
+
 
 @end
