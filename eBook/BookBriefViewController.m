@@ -17,6 +17,9 @@
 #import "UIImageView+WebCache.h"
 #import "GlobalSetting.h"
 
+#define ADD_TO_SHELF  @"添加到书架"
+#define IN_SHELF  @"已在书架"
+
 @interface BookBriefViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(strong,nonatomic) BookDetailInfo * bookInfo;
@@ -80,18 +83,27 @@
     
     if( dict )
     {
-        _addToShelfBtn.enabled = NO;
         _readBtn.enabled = YES;
         
-        [_addToShelfBtn setTitle:@"已在书架" forState:UIControlStateNormal];
+        [_addToShelfBtn setTitle:ADD_TO_SHELF forState:UIControlStateNormal];
         
         //
-        
         self.bookInfo = nil;
-        
         [self.bookInfo fromDict:dict];
         [self.tableView reloadData];
         self.tableView.hidden = NO;
+        
+        
+        //
+        for( BookShelfInfo * info  in [GlobalSetting getBookShelfInfo] )
+        {
+            if( [info.bookDir isEqualToString:self.dir] && [info.bookName isEqualToString:self.bookName] )
+            {
+                [_addToShelfBtn setTitle:IN_SHELF forState:UIControlStateNormal];
+                _addToShelfBtn.enabled = NO;
+                break;
+            }
+        }
     }
     else
     {
@@ -156,24 +168,8 @@
 
 - (IBAction)addToShelf
 {
-    [SVProgressHUD showWithStatus:@"下载中..."];
-    
-    NSString * url = [NSString stringWithFormat:@"%@%@/%@.zip",BASE_URL,self.dir, self.bookName];
-    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    [[DownManager share]startDownLoad:url succ:^(NSData *data) {
-        
-        [FileManager writeDataToFile:data dir:self.dir name:[NSString stringWithFormat:@"%@.zip",self.bookName]];
-        
-        __strong typeof(self) strongSelf = weakSelf;
-        
-        [FileManager unZipFile:self.dir name:self.bookName];
-        
-        [strongSelf getBookList];
-        
-        //
+    if( [_addToShelfBtn.titleLabel.text isEqualToString:ADD_TO_SHELF ] )
+    {
         BookShelfInfo * info = [BookShelfInfo new];
         info.bookName = self.bookName;
         info.bookDir = self.dir;
@@ -182,16 +178,45 @@
         [GlobalSetting addBookShelfInfo:info];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_REFRESH_BOOK_SHELF object:nil];
+    }
+    else
+    {
+        [SVProgressHUD showWithStatus:@"下载中..."];
         
-        [SVProgressHUD showSuccessWithStatus:@"下载完成"];
-    } failed:^{
+        NSString * url = [NSString stringWithFormat:@"%@%@/%@.zip",BASE_URL,self.dir, self.bookName];
+        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
-        [SVProgressHUD showErrorWithStatus:@"下载失败，请稍后重试！"];
+        __weak typeof(self) weakSelf = self;
         
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
-    
-    
+        [[DownManager share]startDownLoad:url succ:^(NSData *data) {
+            
+            [FileManager writeDataToFile:data dir:self.dir name:[NSString stringWithFormat:@"%@.zip",self.bookName]];
+            
+            __strong typeof(self) strongSelf = weakSelf;
+            
+            [FileManager unZipFile:self.dir name:self.bookName];
+            
+            [strongSelf getBookList];
+            
+            //
+            BookShelfInfo * info = [BookShelfInfo new];
+            info.bookName = self.bookName;
+            info.bookDir = self.dir;
+            info.bookDesc = self.bookDesc;
+            
+            [GlobalSetting addBookShelfInfo:info];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_REFRESH_BOOK_SHELF object:nil];
+            
+            [SVProgressHUD showSuccessWithStatus:@"下载完成"];
+        } failed:^{
+            
+            [SVProgressHUD showErrorWithStatus:@"下载失败，请稍后重试！"];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
 
+    }
+    
 }
 @end
