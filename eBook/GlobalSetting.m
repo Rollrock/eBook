@@ -19,6 +19,35 @@
 //
 @implementation GlobalSetting
 
+
++(BOOL)reDownLoad:(NSString*)key
+{
+    #define REDOWN_TIME_INTERVAL  (7*24*3600)  //7天更新一次
+    
+    NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+    NSTimeInterval t = [def doubleForKey:key];
+    NSLog(@"%f-%f",t,[[NSDate date]timeIntervalSince1970]);
+    if( t == 0 )//第一次存储
+    {
+        [def setFloat:[[NSDate date] timeIntervalSince1970] forKey:key];
+        [def synchronize];
+        
+        return YES;
+    }
+    
+    
+    //超过时间
+    if( [[NSDate date] timeIntervalSince1970] - t > REDOWN_TIME_INTERVAL )
+    {
+        [def setDouble:[[NSDate date] timeIntervalSince1970] forKey:key];
+        [def synchronize];
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
 +(void)addBookShelfInfo:(BookShelfInfo*)info
 {
     NSUserDefaults * def = [NSUserDefaults standardUserDefaults];

@@ -45,9 +45,6 @@
     [self initData];
     
     self.title = self.bookName;
-    
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(layoutAdv) userInfo:nil repeats:NO];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,7 +91,7 @@
         self.bookInfo = nil;
         [self.bookInfo fromDict:dict];
         [self.tableView reloadData];
-        //self.tableView.hidden = NO;
+        self.tableView.hidden = NO;
         
         //
         for( BookShelfInfo * info  in [GlobalSetting getBookShelfInfo] )
@@ -117,10 +114,15 @@
         {
             [_readBtn setTitle:@"继续上次阅读" forState:UIControlStateNormal];
         }
+        
+        //
+        [self removeAdv];
     }
     else
     {
         NSLog(@"getBookList is nil");
+        
+        [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(layoutAdv) userInfo:nil repeats:NO];
     }
 }
 
@@ -228,21 +230,21 @@
             
             [self.navigationController popViewControllerAnimated:YES];
         }];
-
     }
 }
 
 -(void)layoutAdv
 {
+    CGRect frame = [self.view viewWithTag:1000].frame;
+    
+    frame = CGRectMake(0, frame.origin.y, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height - frame.origin.y);
+    
     BaiduMobAdView * _baiduView = [[BaiduMobAdView alloc]init];
     _baiduView.AdUnitTag = BAIDU_ADV_ID;
     _baiduView.AdType = BaiduMobAdViewTypeBanner;
-    _baiduView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kBaiduAdViewSquareBanner600x500.height);
+    _baiduView.frame = frame;//CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kBaiduAdViewSquareBanner600x500.height);
     _baiduView.delegate = self;
-    //[self.view addSubview:_baiduView];
-    
-    [self.tableView addSubview:_baiduView];
-    self.tableView.hidden = NO;
+    [self.view addSubview:_baiduView];
     
     [_baiduView start];
 }
@@ -250,5 +252,18 @@
 - (NSString *)publisherId
 {
     return  BAIDU_APP_ID;//@"c5477a92";//;
+}
+
+-(void)removeAdv
+{
+    for( UIView * view in self.view.subviews )
+    {
+        if( [view isKindOfClass:[BaiduMobAdView class]] )
+        {
+            [view removeFromSuperview];
+            
+            return;
+        }
+    }
 }
 @end

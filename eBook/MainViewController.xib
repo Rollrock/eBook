@@ -7,6 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
                 <outlet property="bookScrollBgView" destination="FM1-Hx-qoX" id="rLY-kE-WMM"/>
+                <outlet property="bookScrollHeightCon" destination="HL9-Ib-ljs" id="WCk-Aj-1qV"/>
+                <outlet property="hotHeightCon" destination="V9b-kL-Tmj" id="l21-5Z-TuZ"/>
+                <outlet property="otherHeightCon" destination="2Fv-pL-b8Q" id="Glp-Oe-PcT"/>
+                <outlet property="searchHeightCon" destination="EcH-Go-at9" id="0RP-Ru-Wk2"/>
+                <outlet property="settingHeightCon" destination="lfP-6Z-ZsD" id="laK-fH-EP6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,42 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5si-62-Rg8">
-                    <rect key="frame" x="20" y="255" width="560" height="73"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B95-Xg-Q9b">
-                            <rect key="frame" x="490" y="26" width="40" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="IN6-3H-fm3"/>
-                                <constraint firstAttribute="height" constant="21" id="sIQ-qy-Gry"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hot.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPy-Ue-mJL">
-                            <rect key="frame" x="20" y="15" width="45" height="45"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="45" id="jua-ZW-JE7"/>
-                                <constraint firstAttribute="width" constant="45" id="nuC-hZ-jXQ"/>
-                            </constraints>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.6588235294117647" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="B95-Xg-Q9b" secondAttribute="trailing" constant="30" id="00i-8H-MX7"/>
-                        <constraint firstAttribute="centerY" secondItem="B95-Xg-Q9b" secondAttribute="centerY" id="BAc-IM-LDD"/>
-                        <constraint firstAttribute="height" constant="73" id="V9b-kL-Tmj"/>
-                        <constraint firstAttribute="centerY" secondItem="KPy-Ue-mJL" secondAttribute="centerY" id="Z0R-P0-eHo"/>
-                        <constraint firstItem="KPy-Ue-mJL" firstAttribute="leading" secondItem="5si-62-Rg8" secondAttribute="leading" constant="20" id="apd-0R-sb7"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="3"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </view>
                 <view tag="1002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Wr-4y-K7b">
                     <rect key="frame" x="20" y="348" width="560" height="73"/>
                     <subviews>
@@ -136,7 +105,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="setting.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jua-I3-VDd">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="other.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jua-I3-VDd">
                             <rect key="frame" x="20" y="15" width="45" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="45" id="C0v-Ap-IwB"/>
@@ -161,13 +130,49 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FM1-Hx-qoX" userLabel="ScrollBgView">
                     <rect key="frame" x="10" y="55" width="580" height="180"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="HL9-Ib-ljs"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5si-62-Rg8">
+                    <rect key="frame" x="20" y="255" width="560" height="73"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B95-Xg-Q9b">
+                            <rect key="frame" x="490" y="26" width="40" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="IN6-3H-fm3"/>
+                                <constraint firstAttribute="height" constant="21" id="sIQ-qy-Gry"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hot.png" translatesAutoresizingMaskIntoConstraints="NO" id="KPy-Ue-mJL">
+                            <rect key="frame" x="20" y="15" width="45" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="jua-ZW-JE7"/>
+                                <constraint firstAttribute="width" constant="45" id="nuC-hZ-jXQ"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.6588235294117647" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="B95-Xg-Q9b" secondAttribute="trailing" constant="30" id="00i-8H-MX7"/>
+                        <constraint firstAttribute="centerY" secondItem="B95-Xg-Q9b" secondAttribute="centerY" id="BAc-IM-LDD"/>
+                        <constraint firstAttribute="height" constant="73" id="V9b-kL-Tmj"/>
+                        <constraint firstAttribute="centerY" secondItem="KPy-Ue-mJL" secondAttribute="centerY" id="Z0R-P0-eHo"/>
+                        <constraint firstItem="KPy-Ue-mJL" firstAttribute="leading" secondItem="5si-62-Rg8" secondAttribute="leading" constant="20" id="apd-0R-sb7"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -196,6 +201,7 @@
     </objects>
     <resources>
         <image name="hot.png" width="128" height="128"/>
+        <image name="other.png" width="128" height="128"/>
         <image name="search.png" width="128" height="128"/>
         <image name="setting.png" width="128" height="128"/>
     </resources>

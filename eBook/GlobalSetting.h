@@ -29,6 +29,8 @@
 @interface GlobalSetting : NSObject
 
 
++(BOOL)reDownLoad:(NSString*)key;
+
 +(NSArray*)getBookShelfInfo;
 +(void)addBookShelfInfo:(BookShelfInfo*)info;
 +(void)setBookShelfInfo:(NSArray*)array;

@@ -16,8 +16,8 @@
 #import "BookCategoryViewController.h"
 #import "OtherViewController.h"
 
-#define SHELF_BOOK_WIDTH 110 //书架一本书宽度
-#define SHELF_BOOK_HEIGHT 160 //书架一本书宽度
+#define SHELF_BOOK_WIDTH 110.0 //书架一本书宽度
+#define SHELF_BOOK_HEIGHT 160.0 //书架一本书宽度
 #define SHELF_BOOK_DIS 10 //每本书之间的间隙
 
 
@@ -34,6 +34,13 @@
 //
 @property (strong,nonatomic) NSMutableArray * bookShelfArray;
 @property (weak, nonatomic) IBOutlet UIView *bookScrollBgView;
+//
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bookScrollHeightCon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *hotHeightCon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchHeightCon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *settingHeightCon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherHeightCon;
 
 @end
 
@@ -43,8 +50,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //
-    
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(modifyCon) userInfo:nil repeats:NO];
     
     [_bookScrollBgView addSubview:self.bookScroll];
     
@@ -108,8 +114,9 @@
     for( int i = 0; i < self.bookShelfArray.count; ++ i )
     {
         BookShelfInfo * info = self.bookShelfArray[i];
+
+        CGRect   frame = CGRectMake(SHELF_BOOK_DIS+i*(SHELF_BOOK_WIDTH+SHELF_BOOK_DIS), SHELF_BOOK_DIS, SHELF_BOOK_WIDTH, SHELF_BOOK_HEIGHT);
         
-        CGRect frame = CGRectMake(SHELF_BOOK_DIS+i*(SHELF_BOOK_WIDTH+SHELF_BOOK_DIS), SHELF_BOOK_DIS, SHELF_BOOK_WIDTH, SHELF_BOOK_HEIGHT);
         BookView * view = [[BookView alloc]initWithFrame:frame  img:[self getBookImg:info.bookDir name:info.bookName]];
         view.tag = i;
         view.clickDelegate = self;
@@ -121,12 +128,24 @@
     if( self.bookShelfArray.count == 0 )
     {
         UIImageView * imgView = [[UIImageView alloc]initWithFrame:CGRectMake(SHELF_BOOK_DIS, SHELF_BOOK_DIS, SHELF_BOOK_WIDTH, SHELF_BOOK_HEIGHT)];
-        imgView.image = [UIImage imageNamed:@"book"];
+        imgView.image = [UIImage imageNamed:@"add"];
+        imgView.userInteractionEnabled = YES;
         [_bookScroll addSubview:imgView];
+        
+        
+        UITapGestureRecognizer * g = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addBook)];
+        [imgView addGestureRecognizer:g];
     }
 }
 
 #pragma UI Event
+
+-(void)addBook
+{
+    BookCategoryViewController * vc = [[BookCategoryViewController alloc]initWithNibName:@"BookCategoryViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch * t = [touches anyObject];
@@ -163,6 +182,7 @@
         return;
     }
     
+    //其他
     pt = [t locationInView:[self.view viewWithTag:OTHER_VIEW_TAG]];
     if( CGRectContainsPoint([self.view viewWithTag:OTHER_VIEW_TAG].bounds,pt))
     {
@@ -202,6 +222,30 @@
     [self refreshBookView];
 }
 
+//
+-(void)modifyCon
+{
+    /*
+    if( [self isPhone4])
+    {
+        _hotHeightCon.constant = 50;
+        _searchHeightCon.constant = 50;
+        _settingHeightCon.constant = 50;
+        _otherHeightCon.constant = 50;
+        
+        _bookScrollHeightCon.constant = 140;
+    }
+     */
+}
 
+-(BOOL)isPhone4
+{
+    CGRect rect = [UIScreen mainScreen].bounds;
+    
+    if( rect.size.width == 320 && rect.size.height == 480 )
+        return YES;
+    
+    return NO;
+}
 
 @end

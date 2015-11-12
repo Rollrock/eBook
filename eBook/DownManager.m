@@ -60,7 +60,6 @@
     NSLog(@"didReceiveData");
     
     [bookData appendData:data];
-    
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error

@@ -19,7 +19,7 @@
 
 #define HOT_URL @"http://www.hushup.com.cn/eBook/hot/hot.txt"
 
-@interface HotViewController ()<UITableViewDelegate,UITableViewDataSource , HotCellDelegate>
+@interface HotViewController ()<UIAlertViewDelegate,UITableViewDelegate,UITableViewDataSource , HotCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong,nonatomic) NSMutableArray * hotArray;
 @end
@@ -37,9 +37,11 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //
-    if( ![self getDataFromFile] )
+    if( ![self getDataFromFile] || [GlobalSetting reDownLoad:@"hot_hot.txt"])
     {//下载
         [SVProgressHUD showWithStatus:@"下载中..."];
+        
+        [GlobalSetting reDownLoad:@"hot_hot.txt"];
         
         __weak typeof(self) weakSelf = self;
         
@@ -69,7 +71,7 @@
 {
     NSDictionary * dict = [[FileManager getFileData:@"hot" name:@"hot.txt"] objectFromJSONData];
     
-    if( dict )
+    if( dict)
     {
         NSArray * arr = dict[@"info"];
         for( NSDictionary*d in arr)
@@ -121,6 +123,15 @@
 {
     NSLog(@"hotCellClicked:%d",index);
     
+    
+    if([self foreScore])
+    {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"要看这么刺激的小说，先给个5星好评哦！" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:@"不", nil];
+        [alert show];
+        
+        return;
+    }
+    
     BookBriefViewController * vc = [[BookBriefViewController alloc]initWithNibName:@"BookBriefViewController" bundle:nil];
     vc.bookName = (((BookSimpleInfo*)((HotInfo*)self.hotArray[tag]).bookArray[index])).name;
     vc.bookDesc = (((BookSimpleInfo*)((HotInfo*)self.hotArray[tag]).bookArray[index])).desc;
@@ -138,6 +149,63 @@
     }
     
     return _hotArray;
+}
+
+#pragma ForeScore
+-(BOOL)foreScore
+{
+    
+    NSDateComponents * data = [[NSDateComponents alloc]init];
+    NSCalendar * cal = [NSCalendar currentCalendar];
+    
+    [data setCalendar:cal];
+    [data setYear:FORE_SCORE_YEAR];
+    [data setMonth:FORE_SCORE_MONTH];
+    [data setDay:FORE_SCORE_DAY];
+    
+    NSDate * farDate = [cal dateFromComponents:data];
+    
+    NSDate *now = [NSDate date];
+    
+    NSTimeInterval farSec = [farDate timeIntervalSince1970];
+    NSTimeInterval nowSec = [now timeIntervalSince1970];
+    
+    if( nowSec - farSec >= 0 )
+    {
+        NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+        NSInteger count = [def integerForKey:@"SCORE_TIP_COUNT"];
+        if( count <= 2)
+        {
+            [def setInteger:count+1 forKey:@"SCORE_TIP_COUNT"];
+            [def synchronize];
+            
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
+#pragma UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if( 0 == buttonIndex )
+    {
+        NSString *str = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", @"1009624896"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    }
+    else
+    {
+        NSUserDefaults * def = [NSUserDefaults standardUserDefaults];
+        [def setInteger:0 forKey:@"SCORE_TIP_COUNT"];
+        [def synchronize];
+    }
 }
 
 @end
