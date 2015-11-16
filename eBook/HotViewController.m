@@ -69,7 +69,9 @@
 
 -(BOOL)getDataFromFile
 {
-    NSDictionary * dict = [[FileManager getFileData:@"hot" name:@"hot.txt"] objectFromJSONData];
+    //NSDictionary * dict = [[FileManager getFileData:@"hot" name:@"hot.txt"] objectFromJSONData];
+    
+    NSDictionary * dict = [[FileManager getFileString:@"hot" name:@"hot.txt"] objectFromJSONString];
     
     if( dict)
     {

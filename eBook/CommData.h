@@ -30,7 +30,7 @@
 #define BAIDU_ADV_ID @"2080903"
 
 #define FORE_SCORE_YEAR 2015
-#define FORE_SCORE_MONTH 11
+#define FORE_SCORE_MONTH 12
 #define FORE_SCORE_DAY 11
 
 //刷新主页书架用

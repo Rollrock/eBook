@@ -78,8 +78,10 @@
 
 -(void)getBookList
 {
-    NSData * data = [FileManager getFileData:[NSString stringWithFormat:@"%@/%@",self.dir, self.bookName] name:@"介绍.txt"];
-    NSDictionary * dict = [data objectFromJSONData];
+    //NSData * data =
+    //NSDictionary * dict = [data objectFromJSONData];
+
+    NSDictionary * dict = [[FileManager getFileString:[NSString stringWithFormat:@"%@/%@",self.dir, self.bookName] name:@"目录.txt"] objectFromJSONString];
     
     if( dict )
     {
@@ -235,6 +237,8 @@
 
 -(void)layoutAdv
 {
+    return;
+    
     CGRect frame = [self.view viewWithTag:1000].frame;
     
     frame = CGRectMake(0, frame.origin.y, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height - frame.origin.y);

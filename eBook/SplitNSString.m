@@ -9,7 +9,7 @@
 #import "SplitNSString.h"
 
 
-#define ONE_LOAD_LEN   10 //一次加载长度
+#define ONE_LOAD_LEN   50 //一次加载长度
 #define MIN(a,b) (a>b?b:a)
 
 UIFont * FONT;
@@ -59,7 +59,7 @@ CGFloat MAX_LAB_WIDTH;
             if( h == hTemp )
             {
                 equalCount ++;
-                if( equalCount >= 3 )
+                if( equalCount >= 10 )
                 {
                     (*index) = -1;
                     

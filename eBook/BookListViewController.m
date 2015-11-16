@@ -108,8 +108,11 @@
 #pragma DownLoad
 -(BOOL)getBookList
 {
-    NSData * data = [FileManager getFileData:[NSString stringWithFormat:@"%@",self.cateName] name:@"目录.txt"];
-    NSDictionary * dict = [data objectFromJSONData];
+    //NSData * data = [FileManager getFileData:[NSString stringWithFormat:@"%@",self.cateName] name:@"目录.txt"];
+    //NSDictionary * dict = [data objectFromJSONData];
+    
+   NSDictionary * dict = [[FileManager getFileString:[NSString stringWithFormat:@"%@",self.cateName] name:@"目录.txt"] objectFromJSONString];
+    
     if( dict )
     {
         NSArray * array = dict[@"list"];

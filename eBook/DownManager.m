@@ -73,9 +73,16 @@
 {
     NSLog(@"connectionDidFinishLoading");
     
-    if( self.downComplete )
+    if( bookData && self.downComplete )
     {
         self.downComplete(bookData);
+    }
+    else
+    {
+        if( self.downFailed)
+        {
+            self.downFailed();
+        }
     }
     
     //
